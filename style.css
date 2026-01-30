@@ -1,0 +1,561 @@
+/* =========================================
+   1. VARIÁVEIS GLOBAIS
+   ========================================= */
+:root {
+    /* Cores */
+    --primary-blue: #0070c0;
+    --primary-dark: #005694;
+    --text-dark: #1a202c;
+    --text-gray: #4a5568;
+    --bg-light: #f7fafc;
+    --white: #ffffff;
+
+    /* Configurações Visuais */
+    --radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    
+    /* Configuração do Carrossel */
+    --gap-size: 4rem; 
+}
+
+/* =========================================
+   2. RESET E TIPOGRAFIA
+   ========================================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Texto mais nítido */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* =========================================
+   3. HEADER / NAVBAR
+   ========================================= */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+    width: 120px;;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav a {
+    font-weight: 500;
+    color: var(--text-gray);
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+.nav a:hover {
+    color: var(--primary-blue);
+}
+
+.contato .btn {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.contato .btn:hover {
+    background: var(--primary-dark);
+}
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero {
+    background: linear-gradient(135deg, rgba(15, 32, 39, 0.9) 0%, rgba(32, 58, 67, 0.8) 50%, rgba(44, 83, 100, 0.8) 100%),
+                url('img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 6rem 5% 8rem 5%;
+    display: flex;
+    align-items: center;
+}
+
+.hero .conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero .texto h2 {
+    color: #90cdf4;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.hero .texto h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.hero .texto p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #e2e8f0;
+    max-width: 500px;
+}
+
+/* Botão Global */
+.btn-hero {
+    background: var(--primary-blue);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.btn-hero:hover {
+    transform: translateY(-2px);
+    background: var(--primary-dark);
+}
+
+.hero .video {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    height: 350px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   5. CARROSSEL INFINITO
+   ========================================= */
+.logo-carousel-section {
+    padding: 4rem 0;
+    background-color: var(--bg-light);
+    overflow: hidden;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-carousel-section h3 {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.logo-slide {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-size);
+    padding-right: var(--gap-size);
+    flex-shrink: 0;
+}
+
+.logo-slide img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    max-width: none;
+}
+
+.logo-slide img.logo-large { height: 60px; }
+#rollsRoyce { height: 90px; }
+#modec { height: 100px; }
+.logo-slide img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* =========================================
+   6. TECNOLOGIA
+   ========================================= */
+.technology {
+    padding: 3rem 5%;
+    background: var(--bg-light);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h3 {
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.section-header p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--text-gray);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    border-color: #e2e8f0;
+    box-shadow: var(--shadow-lg);
+}
+
+.tech-icon {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+}
+
+.tech-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.tech-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   7. INDÚSTRIAS (ABAS)
+   ========================================= */
+.industrias {
+    width: 100%;
+    padding: 6rem 5%;
+    background: #fff;
+    border-top: 1px solid #e2e8f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.industrias-nav {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #cbd5e0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+    width: fit-content;
+}
+
+.nav-item:hover { color: var(--text-dark); }
+.nav-item.active { color: var(--primary-blue); }
+.nav-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease;
+}
+.nav-item.active::after { width: 100%; }
+
+.industrias-content-wrapper {
+    flex: 1;
+    min-height: 400px;
+}
+
+.content-panel {
+    display: none;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.4s forwards;
+}
+
+.content-panel.active { display: grid; }
+
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* Browser & Imagem */
+.browser-mockup {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+.browser-header {
+    background: #f8fafc;
+    padding: 12px 16px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.image-container {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background-color: #edf2f7;
+}
+
+.browser-mockup .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Texto das Abas */
+.text-description h3 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+.text-description p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   8. RESPONSIVIDADE (MOBILE & TABLET)
+   ========================================= */
+@media (max-width: 900px) {
+    /* HEADER: Empilha Logo, Menu e Botão */
+    header {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .nav ul {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* HERO: Ajuste de Texto e Layout */
+    .hero {
+        padding: 4rem 5%;
+        text-align: center;
+    }
+    .hero .conteudo {
+        grid-template-columns: 1fr; /* 1 coluna */
+        gap: 3rem;
+    }
+    .hero h1 {
+        font-size: 2.5rem; /* Fonte menor */
+    }
+    .hero .texto p {
+        margin: 0 auto 2rem auto;
+    }
+
+    /* SEÇÕES GERAIS: Redução de Padding */
+    .technology, .industrias {
+        padding: 4rem 5%;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    /* ABAS (INDÚSTRIAS): Scroll Horizontal */
+    .container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .industrias-nav {
+        flex-direction: row;
+        overflow-x: auto; /* Permite rolar para o lado */
+        width: 100%;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+        
+        /* Esconde a barra de rolagem (Chrome/Safari) mas mantém funcional */
+        -webkit-overflow-scrolling: touch; 
+    }
+    
+    .industrias-nav::-webkit-scrollbar {
+        height: 0px;
+        background: transparent;
+    }
+
+    .nav-item {
+        white-space: nowrap; /* Não quebra linha */
+        margin-right: 20px;
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .content-panel {
+        grid-template-columns: 1fr; /* Imagem em cima, texto embaixo */
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .image-container {
+        height: 250px; /* Imagem menor no celular */
+    }
+
+    /* CARROSSEL: Ajuste Mobile */
+    :root {
+        --gap-size: 2rem;
+    }
+    .logo-slide img {
+        height: 25px;
+    }
+    .logo-slide img.logo-large {
+        height: 40px;
+    }
+    #rollsRoyce, #modec {
+        height: 60px;
+    }
+}
+
+/* AJUSTES PARA CELULARES MUITO PEQUENOS */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .nav ul {
+        gap: 1rem;
+    }
+    .btn-hero {
+        width: 100%;
+        justify-content: center;
+    }
+}

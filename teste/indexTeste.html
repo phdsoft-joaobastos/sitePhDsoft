@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhDsoft - Engenharia Aumentada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- Variáveis de Design (Estilo SimScale) --- */
+        :root {
+            --primary-color: #0070c0; /* Azul similar ao SimScale/PhDsoft */
+            --primary-dark: #005694;
+            --text-dark: #1a202c;
+            --text-gray: #4a5568;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* --- Header / Navbar --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i { color: var(--primary-color); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .mobile-menu { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); /* Gradiente Industrial moderno */
+            color: var(--white);
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            /* Simulação de imagem de fundo com overlay */
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #a0aec0;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* --- Technology Section --- */
+        .technology {
+            padding: 5rem 5%;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
+
+        .section-header h3 {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            color: var(--text-gray);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Segments Section --- */
+        .segments {
+            padding: 5rem 5%;
+        }
+
+        .segments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .segment-card {
+            position: relative;
+            height: 250px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            group: isolate;
+        }
+
+        .segment-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .segment-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .segment-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .segment-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Botão Explore Mais */
+        .cta-container {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .btn-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .mobile-menu { display: block; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero { padding-top: 2rem; flex-direction: column; text-align: center; }
+            .hero-content { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-atom"></i> PhDsoft
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Soluções</a></li>
+                <li><a href="#">Tecnologia</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn-primary">Solicitar Demo</a>
+            <i class="fas fa-bars mobile-menu"></i>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ENGENHARIA AUMENTADA</h1>
+            <h2>A Revolução na Engenharia com Inteligência Aumentada</h2>
+            <p>Levamos sua engenharia para o futuro! Otimize operações complexas com tecnologia de ponta.</p>
+            <a href="#segments" class="btn-primary btn-large">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section class="technology">
+        <div class="section-header">
+            <h3>Nossa Tecnologia</h3>
+            <h2>O Futuro da Manutenção Inteligente</h2>
+            <p>Com nossa tecnologia revolucionária, combinamos Inteligência Artificial, Gêmeos Digitais e IoT para potencializar sua engenharia e otimizar operações.</p>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon"><i class="fas fa-brain"></i></div>
+                <h4>Inteligência Artificial</h4>
+                <p>Algoritmos preditivos que antecipam falhas e otimizam a tomada de decisão.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon"><i class="fas fa-city"></i></div>
+                <h4>Gêmeos Digitais</h4>
+                <p>Réplicas virtuais precisas para simulação e monitoramento em tempo real.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon"><i class="fas fa-network-wired"></i></div>
+                <h4>Internet das Coisas</h4>
+                <p>Conectividade total entre sensores e sistemas para dados ininterruptos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="segments" id="segments">
+        <div class="section-header" style="text-align: center;">
+            <h3>Áreas de Atuação</h3>
+            <h2>Qual o seu segmento de interesse?</h2>
+            <p>Selecione sua área para descobrir soluções personalizadas.</p>
+        </div>
+
+        <div class="segments-grid">
+            <div class="segment-card">
+                <img src="https://images.unsplash.com/photo-1569062015-77983696d199?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Offshore">
+                <div class="segment-overlay">
+                    <h4>Offshore & Naval</h4>
+                </div>
+            </div>
+            <div class="segment-card">
+                <img src="https://images.unsplash.com/photo-1516937941348-c09645f871cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Óleo e Gás">
+                <div class="segment-overlay">
+                    <h4>Óleo & Gás</h4>
+                </div>
+            </div>
+            <div class="segment-card">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Indústria">
+                <div class="segment-overlay">
+                    <h4>Indústria & Manufatura</h4>
+                </div>
+            </div>
+            <div class="segment-card">
+                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Energia">
+                <div class="segment-overlay">
+                    <h4>Energia</h4>
+                </div>
+            </div>
+            <div class="segment-card">
+                <img src="https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Infraestrutura">
+                <div class="segment-overlay">
+                    <h4>Infraestrutura</h4>
+                </div>
+            </div>
+            <div class="segment-card">
+                <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Smart Cities">
+                <div class="segment-overlay">
+                    <h4>Smart Cities</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-container">
+            <a href="#" class="btn-primary btn-large">EXPLORE MAIS <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 PhDsoft. Engenharia Aumentada para o futuro.</p>
+    </footer>
+
+    <script>
+        // Simples script para menu mobile e efeito de scroll no header
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Placeholder para imagens que falharem
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.onerror = function() {
+                this.src = 'https://via.placeholder.com/400x250?text=Imagem+PhDsoft';
+            };
+        });
+    </script>
+</body>
+</html>
