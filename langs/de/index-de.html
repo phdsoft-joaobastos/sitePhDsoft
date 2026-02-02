@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhDsoft – Erweiterte Ingenieurtechnik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .tech-card .img-tech{
+          width: 100%;
+          height: 120px;                 /* controla o tamanho da área da imagem */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1.5rem;
+        }
+
+        /* imagem em si */
+        .tech-card .img-tech img{
+          max-width: 250px;               /* tamanho visual da imagem */
+          max-height: 250px;
+          object-fit: contain;
+          display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switch" aria-label="Language switcher">
+      <a href="/index.html" class="lang-btn" aria-label="Português" title="Português">
+        <img src="/img/flags/brazil.svg" alt="Português (Brasil)" width="26" height="18">
+      </a>
+
+      <a href="/langs/en/index-en.html" class="lang-btn" aria-label="English" title="English">
+        <img src="/img/flags/usa.svg" alt="English" width="26" height="18">
+      </a>
+
+      <a href="/langs/de/index-de.html" class="lang-btn" aria-label="Deutsch" title="Deutsch">
+        <img src="/img/flags/germany.svg" alt="Deutsch" width="26" height="18">
+      </a>
+
+      <a href="/langs/fr/index-fr.html" class="lang-btn" aria-label="Français" title="Français">
+        <img src="/img/flags/france.svg" alt="Français" width="26" height="18">
+      </a>
+    </div>
+
+    <section class="hero">
+        <div class="conteudo">
+            <div class="texto">
+                <h2>Erweiterte Ingenieurtechnik</h2>
+                <h1>Intelligenz für technische Entscheidungen</h1>
+                <p>
+                    Unsere Plattform integriert KI und IoT, um Ausfälle vorherzusagen,
+                    Betriebskosten zu senken und die Lebensdauer industrieller Anlagen
+                    zu verlängern.
+                </p>
+                <a href="#" class="btn-hero">
+                    Jetzt starten <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <video autoplay muted loop playsinline preload="auto">
+                <source src="/img/Web Digital Twin v5 sem audio 3min.mp4" type="video/mp4">
+                Ihr Browser unterstützt kein HTML5-Video.
+            </video>
+        </div>
+    </section>
+
+    <section class="technology">
+        <div class="section-header">
+            <h3>Unsere Technologie</h3>
+            <h2>Die Zukunft der intelligenten Instandhaltung</h2>
+            <p>
+                Wir kombinieren Künstliche Intelligenz, Digitale Zwillinge und IoT,
+                um technische Leistungsfähigkeit und Entscheidungsprozesse zu verbessern.
+            </p>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="img-tech"><img src="/img/industrias/ia (tent 1).png" alt=""></div>
+                <h4>Künstliche Intelligenz</h4>
+                <p>
+                    Prädiktive Algorithmen zur frühzeitigen Erkennung von Ausfällen
+                    und zur Optimierung technischer Entscheidungen in Echtzeit.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="img-tech"><img src="/img/industrias/digital twin (tent1).png" alt=""></div>
+                <h4>Digitale Zwillinge</h4>
+                <p>
+                    Präzise virtuelle Abbilder zur Simulation von Szenarien
+                    und zur strukturellen Überwachung.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="img-tech"><img src="/img/industrias/iot (tent1).png" alt=""></div>
+                <h4>Industrielles IoT</h4>
+                <p>
+                    Echtzeitdaten von Anlagen für kontinuierliche Überwachung,
+                    reduzierte Ausfallraten und höhere Betriebssicherheit.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="logo-carousel-section">
+        <div class="container-tech" style="flex-direction: column; gap: 0;"> 
+            <h3>Unternehmen, die unserer Technologie vertrauen</h3>
+            
+            <div class="carousel-container" id="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="logo-slide" id="logoSlide">
+                        <img src="/img/logos/engie-removebg-preview.png" alt="Engie" class="logo-large">
+                        <img src="/img/logos/marinha-removebg-preview.png" alt="Brasilianische Marine" class="logo-large">
+                        <img src="/img/logos/modec-removebg-preview.png" alt="MODEC" id="modec">
+                        <img src="/img/logos/porto do açu.png" alt="Hafen von Açu" class="logo-large">
+                        <img src="/img/logos/rolls_royce-removebg-preview.png" alt="Rolls-Royce" id="rollsRoyce">
+                        <img src="/img/logos/shell-removebg-preview.png" alt="Shell" class="logo-large">
+                        <img src="/img/logos/siemens-removebg-preview.png" alt="Siemens">
+                        <img src="/img/logos/subsea-removebg-preview.png" alt="Subsea" class="logo-large">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="industrias-v2">
+        <div class="section-header">
+            <h3>Unsere Expertise</h3>
+            <h2>Branchen</h2>
+            <p class="subtitle">
+                Branchenspezifische Lösungen mit Fokus auf Zuverlässigkeit und Performance.
+            </p>
+        </div>
+
+        <div class="container">
+            <div class="grid">
+
+                <article class="box">
+                    <div class="media">
+                        <img src="/img/industrias/offshore.jpg" alt="Offshore und Marine">
+                    </div>
+                    <div class="content">
+                        <h3>Offshore & Marine</h3>
+                        <p>
+                            Integrität von Offshore-Anlagen mit Vorhersagen zu Korrosion
+                            und Ermüdung.
+                        </p>
+                        <a href="naval.html" class="btn-hero">
+                            Mehr erfahren <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="box">
+                    <div class="media">
+                        <img src="/img/industrias/oleo.jpg" alt="Öl und Gas">
+                    </div>
+                    <div class="content">
+                        <h3>Öl & Gas</h3>
+                        <p>
+                            Modelle und datenbasierte Erkenntnisse für schnelle Entscheidungen
+                            bei kritischen Anlagen.
+                        </p>
+                        <a href="#" class="btn-hero">
+                            Mehr erfahren <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="box">
+                    <div class="media">
+                        <img src="/img/industrias/manufatura.jpg" alt="Industrie und Fertigung">
+                    </div>
+                    <div class="content">
+                        <h3>Industrie & Fertigung</h3>
+                        <p>
+                            IoT in der Produktion zur Reduzierung von Stillständen
+                            und operativen Verlusten.
+                        </p>
+                        <a href="#" class="btn-hero">
+                            Mehr erfahren <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="box">
+                    <div class="media">
+                        <img src="/img/industrias/energia.jpg" alt="Energie">
+                    </div>
+                    <div class="content">
+                        <h3>Energie</h3>
+                        <p>
+                            Höhere Vorhersagbarkeit im Betrieb und in der Wartung
+                            von Energieanlagen.
+                        </p>
+                        <a href="#" class="btn-hero">
+                            Mehr erfahren <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="box">
+                    <div class="media">
+                        <img src="/img/industrias/infraestrutura.jpg" alt="Infrastruktur">
+                    </div>
+                    <div class="content">
+                        <h3>Infrastruktur</h3>
+                        <p>
+                            Kontinuierliche strukturelle Überwachung mit
+                            präzisen Eingriffen.
+                        </p>
+                        <a href="#" class="btn-hero">
+                            Mehr erfahren <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="box">
+                    <div class="media">
+                        <img src="/img/industrias/smartCitiesGemini.png" alt="Smart Cities">
+                    </div>
+                    <div class="content">
+                        <h3>Smart Cities</h3>
+                        <p>
+                            Integrierte Daten für eine effizientere
+                            urbane Verwaltung.
+                        </p>
+                        <a href="#" class="btn-hero">
+                            Mehr erfahren <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>PhDsoft</h3>
+                    <p>
+                        Erweiterte Ingenieurtechnik für Überwachung, Vorhersage
+                        und Entscheidungsfindung. Integrieren Sie KI und IoT,
+                        um Stillstandszeiten zu reduzieren und die
+                        Betriebssicherheit zu erhöhen.
+                    </p>
+
+                    <div class="footer-cta">
+                        <a href="#" class="btn-hero footer-btn">
+                            Mit einem Experten sprechen <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Produkt</h4>
+                        <ul>
+                            <li><a href="#technology">Technologie</a></li>
+                            <li><a href="#industries">Branchen</a></li>
+                            <li><a href="#cases">Anwendungsfälle</a></li>
+                            <li><a href="#security">Sicherheit</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Unternehmen</h4>
+                        <ul>
+                            <li><a href="#about">Über uns</a></li>
+                            <li><a href="#careers">Karriere</a></li>
+                            <li><a href="#press">Presse</a></li>
+                            <li><a href="#contact">Kontakt</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Kontakt</h4>
+                        <ul class="footer-contact">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:contato@phdsoft.com">contato@phdsoft.com</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+5521999999999">+55 (21) 99999-9999</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-location-dot"></i>
+                                Rio de Janeiro, Brasilien
+                            </li>
+                        </ul>
+
+                        <div class="footer-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> PhDsoft. Alle Rechte vorbehalten.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Datenschutzrichtlinie</a>
+                    <span class="dot-sep">•</span>
+                    <a href="#terms">Nutzungsbedingungen</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

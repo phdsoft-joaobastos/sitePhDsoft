@@ -979,6 +979,40 @@ footer
 }
 
 
+/* Languages Switch */
+.lang-switch{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.lang-btn{
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+  padding: 8px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.lang-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.45);
+}
+
+.lang-btn.active{
+  border-color: rgba(255,255,255,0.9);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.15) inset;
+}
+
+
+
 
 
 /* =========================================
