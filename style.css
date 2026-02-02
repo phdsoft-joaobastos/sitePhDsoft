@@ -27,6 +27,10 @@
     box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -184,6 +188,10 @@ img {
     align-items: center;
 }
 
+#ghost-home{
+  margin-left: 2rem;
+}
+
 .hero .texto h2 {
     color: #90cdf4;
     text-transform: uppercase;
@@ -209,20 +217,37 @@ img {
 
 /* Botão Global */
 .btn-hero {
-    background: var(--primary-blue);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: var(--radius);
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 15px 30px;
+    font-size: 1rem;
     font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.2s;
+    border: none;
+    border-radius: 8px; /* Mantendo o padrão arredondado suave */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    /* Animação de pulso constante */
+    animation: pulse-blue 2s infinite;
 }
 
 .btn-hero:hover {
-    transform: translateY(-2px);
-    background: var(--primary-dark);
+    background-color: var(--primary-dark);
+    /* Pausa a animação ou intensifica no hover, aqui optei por parar e fixar o brilho */
+    animation: none;
+    box-shadow: 0 0 20px rgba(0, 112, 192, 0.8);
+}
+
+@keyframes btn-hero {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 112, 192, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 112, 192, 0); /* A sombra cresce e desaparece */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 112, 192, 0);
+    }
 }
 
 /*.hero .video {
@@ -351,14 +376,14 @@ video {
 .section-header h3 {
     color: var(--primary-blue);
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 1.2px;
     margin-bottom: 0.5rem;
     font-weight: 700;
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--text-dark);
     margin-bottom: 1rem;
     font-weight: 700;
@@ -368,6 +393,7 @@ video {
     max-width: 700px;
     margin: 0 auto;
     color: var(--text-gray);
+    font-size: 0.95;
 }
 
 .tech-grid {
@@ -401,14 +427,14 @@ video {
 }
 
 .tech-card h4 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     margin-bottom: 1rem;
     color: var(--text-dark);
 }
 
 .tech-card p {
     color: var(--text-gray);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 /* =========================================
@@ -562,18 +588,51 @@ video {
 }
 
 /* Card */
-.industrias-v2 .box{
-  border-radius: 18px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: transform .2s ease, border-color .2s ease;
+
+.industrias-v2 .box {
+    background: var(--white);           /* Fundo Branco */
+    border-radius: var(--radius);       /* Arredondamento padrão (12px) */
+    box-shadow: var(--shadow-sm);       /* Sombra suave idêntica à de tecnologia */
+    border: 1px solid transparent;      /* Borda invisível inicialmente */
+    
+    overflow: hidden;                   /* Mantém a imagem dentro do card */
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
-.industrias-v2 .box:hover{
-  transform: translateY(-4px);
-  border-color: rgba(255,255,255,0.18);
+.industrias-v2 .box:hover {
+    transform: translateY(-5px);        /* Efeito de levitação */
+    border-color: #e2e8f0;              /* Borda cinza clara aparece */
+    box-shadow: var(--shadow-lg);       /* Sombra aumenta e fica mais difusa */
 }
+
+/* Ajuste fino para o conteúdo interno não ficar colado */
+.industrias-v2 .content {
+    padding: 1.5rem;                    /* Espaçamento interno confortável */
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Garante que o título e texto tenham as cores certas no fundo branco */
+.industrias-v2 .content h3 {
+    color: var(--text-dark);
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+}
+
+.industrias-v2 .content p {
+    color: var(--text-gray);
+    margin: 0 0 16px;
+    opacity: 1; /* Remove transparência antiga se houver */
+    font-size: 0.95;
+}
+
+.industrias-v2 .content a{
+  margin-top: auto;
+  font-size: 0.95;
+}
+
 
 .industrias-v2 .media{
   height: 170px;
@@ -585,20 +644,6 @@ video {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.industrias-v2 .content{
-  padding: 16px 16px 18px;
-}
-
-.industrias-v2 .content h3{
-  margin: 0 0 8px;
-  font-size: 1.05rem;
-}
-
-.industrias-v2 .content p{
-  margin: 0 0 14px;
-  opacity: .85;
 }
 
 /* Responsivo */
