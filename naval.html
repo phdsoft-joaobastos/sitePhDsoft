@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhDsoft | Offshore & Naval</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <img src="img/logos/Logo phdsoft.png" alt="PhDsoft">
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Soluções</a></li>
+                <li><a href="#">Tecnologia</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Cases de Sucesso</a></li>
+            </ul>
+        </nav>
+
+        <div class="contato">
+            <a href="#" class="btn">Entre em Contato</a>
+        </div>
+    </header>
+
+
+  <!-- HERO (tema igual ao teu, mas focado no setor) -->
+  <section class="hero hero--offshore" id="overview">
+    <div class="conteudo">
+      <div class="texto">
+        <h2>Offshore & Naval</h2>
+        <h1>Confiabilidade operacional em ambiente crítico</h1>
+        <p>
+          A PhDsoft combina Gêmeos Digitais, IA e dados de operação para antecipar falhas,
+          priorizar intervenções e reduzir paradas — com rastreabilidade e visão executiva.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn-hero">Agendar demonstração <i class="fas fa-arrow-right"></i></a>
+          <a href="#use-cases" class="btn-hero btn-hero--ghost">Ver cases de sucesso</a>
+        </div>
+
+        <div class="hero-badges">
+          <span class="badge"><i class="fa-solid fa-shield-halved"></i> Rastreabilidade</span>
+          <span class="badge"><i class="fa-solid fa-bolt"></i> Decisão rápida</span>
+          <span class="badge"><i class="fa-solid fa-sitemap"></i> Integração de dados</span>
+        </div>
+      </div>
+
+      <!-- Vídeo / Demo (responsivo por aspect-ratio) -->
+      <div class="hero-media">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="img/Web Digital Twin v5 sem audio 3min.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo HTML5.
+        </video>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- LOGO CAROUSEL (reaproveita seu componente + script) -->
+  <section class="logo-carousel-section">
+    <div class="container-tech" style="flex-direction: column; gap: 0;">
+      <h3>Times de engenharia que confiam na tecnologia</h3>
+
+      <div class="carousel-container" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="logo-slide" id="logoSlide">
+            <img src="img/logos/modec-removebg-preview.png" alt="modec" id="modec">
+            <img src="img/logos/shell-removebg-preview.png" alt="shell" class="logo-large">
+            <img src="img/logos/rolls_royce-removebg-preview.png" alt="rollsRoyce" id="rollsRoyce">
+            <img src="img/logos/subsea-removebg-preview.png" alt="subsea" class="logo-large">
+            <img src="img/logos/siemens-removebg-preview.png" alt="siemens">
+            <img src="img/logos/marinha-removebg-preview.png" alt="marinha" class="logo-large">
+            <img src="img/logos/porto do açu.png" alt="porto" class="logo-large">
+            <img src="img/logos/engie-removebg-preview.png" alt="engie" class="logo-large">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROBLEMAS / DOR -->
+  <section class="technology section--tight">
+    <div class="section-header">
+      <h3>Desafios do setor</h3>
+      <h2>Quando o risco é alto, o dado precisa virar decisão</h2>
+      <p>
+        Offshore e naval exigem inspeção, priorização e resposta com evidência. A plataforma
+        centraliza informações para apoiar engenharia, manutenção e gestão.
+      </p>
+    </div>
+
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-icon"><i class="fa-solid fa-water"></i></div>
+        <h4>Corrosão e degradação</h4>
+        <p>Consolide inspeções, tendências e histórico para priorizar onde agir primeiro.</p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-icon"><i class="fa-solid fa-wave-square"></i></div>
+        <h4>Ambiente operacional agressivo</h4>
+        <p>Rastreie condições, intervenções e anomalias com contexto do ativo e localização.</p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+        <h4>Auditoria e rastreabilidade</h4>
+        <p>Registre evidências, decisões e evolução do risco — pronto para governança.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Aplicações -->
+
+<!-- CASOS DE USO (Layout original em abas) -->
+    <section class="industrias aplicacoes" id="use-cases">
+      <div class="container">
+
+        <!-- NAV (abas) -->
+        <ul class="industrias-nav">
+          <li class="nav-item active" data-target="uc-integridade">Integridade estrutural</li>
+          <li class="nav-item" data-target="uc-manutencao">Planejamento de manutenção</li>
+          <li class="nav-item" data-target="uc-inspecao">Inspeção & documentação</li>
+          <li class="nav-item" data-target="uc-compliance">Risco & compliance</li>
+          <li class="nav-item" data-target="uc-integracao">Integração de dados</li>
+          <li class="nav-item" data-target="uc-executiva">Visão executiva</li>
+        </ul>
+
+        <!-- CONTEÚDO (painéis) -->
+        <div class="industrias-content-wrapper">
+
+          <!-- 1 -->
+          <div class="content-panel active" id="uc-integridade">
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="img/industrias/offshore.jpg" alt="Integridade Estrutural">
+              </div>
+            </div>
+            <div class="text-description">
+              <h3>Integridade estrutural</h3>
+              <p>Mapa de risco por região, histórico de intervenções e trilha de decisão para priorização técnica.</p>
+              <a href="#contact" class="btn-hero">Quero ver na prática <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="content-panel" id="uc-manutencao">
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="img/industrias/oleo.jpg" alt="Planejamento de manutenção">
+              </div>
+            </div>
+            <div class="text-description">
+              <h3>Planejamento de manutenção</h3>
+              <p>Priorize backlog com base em criticidade, impacto operacional e risco acumulado por ativo.</p>
+              <a href="#contact" class="btn-hero">Solicitar demonstração <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="content-panel" id="uc-inspecao">
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="img/industrias/infraestrutura.jpg" alt="Inspeção e documentação">
+              </div>
+            </div>
+            <div class="text-description">
+              <h3>Inspeção & documentação</h3>
+              <p>Centralize evidências, fotos, relatórios e status de anomalias por região/estrutura, com rastreabilidade.</p>
+              <a href="#contact" class="btn-hero">Falar com especialista <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="content-panel" id="uc-compliance">
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="img/industrias/energia.jpg" alt="Gestão de risco e compliance">
+              </div>
+            </div>
+            <div class="text-description">
+              <h3>Risco & compliance</h3>
+              <p>Rastreabilidade ponta a ponta para auditorias, governança e relatórios executivos com clareza.</p>
+              <a href="#security" class="btn-hero">Ver segurança <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="content-panel" id="uc-integracao">
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="img/industrias/manufatura.jpg" alt="Integrações e dados">
+              </div>
+            </div>
+            <div class="text-description">
+              <h3>Integração de dados</h3>
+              <p>Conecte medições, inspeções e histórico de intervenção para um diagnóstico consistente e comparável.</p>
+              <a href="#how-it-works" class="btn-hero">Como funciona <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="content-panel" id="uc-executiva">
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="img/industrias/smartCitiesGemini.png" alt="Visão executiva">
+              </div>
+            </div>
+            <div class="text-description">
+              <h3>Visão executiva</h3>
+              <p>Dashboards e indicadores para decisão rápida, priorização e comunicação clara com stakeholders.</p>
+              <a href="#contact" class="btn-hero">Quero um overview <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+ <!----  <section class="industrias-v2 section--light" id="use-cases">
+    <div class="section-header">
+      <h3>Casos de uso</h3>
+      <h2>Aplicações práticas em Offshore & Naval</h2>
+      <p class="subtitle">Do nível técnico ao executivo: do dado bruto à ação priorizada.</p>
+    </div>
+
+    <div class="container">
+      <div class="grid">
+        <article class="box">
+          <div class="media">
+            <img src="img/industrias/offshore.jpg" alt="Integridade Estrutural">
+          </div>
+          <div class="content">
+            <h3>Integridade estrutural</h3>
+            <p>Mapa de risco por região, histórico de intervenções e trilha de decisão.</p>
+            <a href="#contact" class="btn-hero">Quero ver na prática <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="box">
+          <div class="media">
+            <img src="img/industrias/oleo.jpg" alt="Planejamento de manutenção">
+          </div>
+          <div class="content">
+            <h3>Planejamento de manutenção</h3>
+            <p>Priorize backlog com base em criticidade e impacto operacional.</p>
+            <a href="#contact" class="btn-hero">Solicitar demonstração <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="box">
+          <div class="media">
+            <img src="img/industrias/infraestrutura.jpg" alt="Inspeção e documentação">
+          </div>
+          <div class="content">
+            <h3>Inspeção e documentação</h3>
+            <p>Centralize evidências, fotos, relatórios e status de anomalias por ativo.</p>
+            <a href="#contact" class="btn-hero">Falar com especialista <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="box">
+          <div class="media">
+            <img src="img/industrias/energia.jpg" alt="Gestão de risco e compliance">
+          </div>
+          <div class="content">
+            <h3>Risco & compliance</h3>
+            <p>Rastreabilidade ponta a ponta para auditorias e governança.</p>
+            <a href="#security" class="btn-hero">Ver segurança <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="box">
+          <div class="media">
+            <img src="img/industrias/manufatura.jpg" alt="Integrações e dados">
+          </div>
+          <div class="content">
+            <h3>Integração de dados</h3>
+            <p>Conecte medições, inspeções e histórico para um diagnóstico consistente.</p>
+            <a href="#how-it-works" class="btn-hero">Como funciona <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="box">
+          <div class="media">
+            <img src="img/industrias/smartCitiesGemini.png" alt="Visão executiva">
+          </div>
+          <div class="content">
+            <h3>Visão executiva</h3>
+            <p>Dashboards e indicadores para decisão rápida e comunicação clara.</p>
+            <a href="#contact" class="btn-hero">Quero um overview <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section> -->
+
+
+  <!-- COMO FUNCIONA -->
+  <section class="technology" id="how-it-works">
+    <div class="section-header">
+      <h3>Como entregamos</h3>
+      <h2>Do modelo ao plano de ação</h2>
+      <p>Uma jornada simples (e escalável) para colocar a plataforma em produção no seu ativo.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Mapeamento do ativo</h4>
+          <p>Organização por regiões, componentes e criticidade (estrutura, sistemas, inspeção).</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>Centralização de dados</h4>
+          <p>Integração de relatórios, fotos, medições e histórico operacional em um fluxo único.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Análise e priorização</h4>
+          <p>IA e regras de engenharia para identificar tendências, riscos e recomendações.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>Decisão com rastreabilidade</h4>
+          <p>Planejamento com evidência: o “porquê” da decisão fica registrado e auditável.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SEGURANÇA -->
+  <section class="technology section--light" id="security">
+    <div class="section-header">
+      <h3>Segurança</h3>
+      <h2>Governança de dados e controle de acesso</h2>
+      <p>
+        Controle por perfis, rastreio de alterações e organização de evidências para auditoria.
+        Segurança e confiabilidade são parte do produto.
+      </p>
+    </div>
+
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-icon"><i class="fa-solid fa-user-shield"></i></div>
+        <h4>Acesso por perfil</h4>
+        <p>Permissões por função e por ativo, com visibilidade sob medida para cada time.</p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-icon"><i class="fa-solid fa-file-signature"></i></div>
+        <h4>Trilha de auditoria</h4>
+        <p>Alterações registradas e rastreáveis, com histórico de decisões e evidências.</p>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-icon"><i class="fa-solid fa-database"></i></div>
+        <h4>Dados organizados</h4>
+        <p>Padronização de documentos e cadastros para consistência e escalabilidade.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTATO -->
+  <section class="technology" id="contact">
+    <div class="section-header">
+      <h3>Contato</h3>
+      <h2>Vamos aplicar no seu cenário?</h2>
+      <p>Envie uma mensagem e a gente monta uma demo orientada ao seu tipo de ativo e processo.</p>
+    </div>
+
+    <div class="contact-panel">
+      <div class="contact-box">
+        <h4>O que você recebe na demo</h4>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-check"></i> Visão do ativo por regiões / componentes</li>
+          <li><i class="fa-solid fa-check"></i> Exemplo de fluxo de inspeção → decisão</li>
+          <li><i class="fa-solid fa-check"></i> Indicadores executivos (risco, backlog, status)</li>
+          <li><i class="fa-solid fa-check"></i> Próximos passos de implantação</li>
+        </ul>
+      </div>
+
+      <div class="contact-box contact-box--cta">
+        <h4>Falar com especialista</h4>
+        <p class="muted">Use o canal que preferir:</p>
+
+        <div class="contact-actions">
+          <a class="btn-hero" href="mailto:contato@phdsoft.com">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+
+          <a class="btn-hero btn-hero--ghost" href="tel:+5521999999999">
+            <i class="fas fa-phone"></i> Telefone
+          </a>
+        </div>
+
+        <p class="muted" style="margin-top: 14px;">
+          Rio de Janeiro, Brasil
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER (mesmo do seu index) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>PhDsoft</h3>
+          <p>
+            Engenharia aumentada para monitoramento, previsão e decisão.
+            Integre IA e IoT e reduza paradas com mais confiabilidade operacional.
+          </p>
+
+          <div class="footer-cta">
+            <a href="#contact" class="btn-hero footer-btn">Falar com um especialista <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Produto</h4>
+            <ul>
+              <li><a href="#overview">Visão geral</a></li>
+              <li><a href="#use-cases">Casos de uso</a></li>
+              <li><a href="#how-it-works">Como funciona</a></li>
+              <li><a href="#security">Segurança</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Empresa</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#contact">Contato</a></li>
+              <li><a href="#privacy">Política</a></li>
+              <li><a href="#terms">Termos</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contato</h4>
+            <ul class="footer-contact">
+              <li><i class="fas fa-envelope"></i> <a href="mailto:contato@phdsoft.com">contato@phdsoft.com</a></li>
+              <li><i class="fas fa-phone"></i> <a href="tel:+5521999999999">+55 (21) 99999-9999</a></li>
+              <li><i class="fas fa-location-dot"></i> Rio de Janeiro, Brasil</li>
+            </ul>
+
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> PhDsoft. Todos os direitos reservados.</p>
+        <div class="footer-legal">
+          <a href="#privacy" id="privacy">Política de Privacidade</a>
+          <span class="dot-sep">•</span>
+          <a href="#terms" id="terms">Termos de Uso</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

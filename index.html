@@ -9,56 +9,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <header>
-        <div class="logo">
-            <img src="img/logos/Logo phdsoft.png" alt="PhDsoft">
-        </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="#">Soluções</a></li>
-                <li><a href="#">Tecnologia</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Casos de Uso</a></li>
-            </ul>
-        </nav>
-        <div class="contato">
-            <a href="#" class="btn">Entre em Contato</a>
-        </div>
-    </header>
 
     <section class="hero">
         <div class="conteudo">
             <div class="texto">
-                <h2>Engenharia 4.0</h2>
-                <h1>Revolucione sua operação com Gêmeos Digitais</h1>
+                <h2>Engenharia Aumentada</h2>
+                <h1>Inteligência para decisões de engenharia</h1>
                 <p>Nossa plataforma integra IA e IoT para prever falhas, reduzir custos e aumentar a vida útil dos seus ativos industriais.</p>
                 <a href="#" class="btn-hero">Começar Agora <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="video">
-                <i class="fas fa-cube fa-3x" style="opacity: 0.5;"></i>
-            </div>
-        </div>
-    </section>
-
-    <section class="logo-carousel-section">
-        <div class="container" style="flex-direction: column; gap: 0;"> 
-            <h3>Empresas que confiam em nossa tecnologia</h3>
-            
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="logo-slide">
-                        <img src="img/logos/engie-removebg-preview.png" alt="engie" class="logo-large">
-                        <img src="img/logos/marinha-removebg-preview.png" alt="marinha" class="logo-large">
-                        <img src="img/logos/modec-removebg-preview.png" alt="modec" id="modec">
-                        <img src="img/logos/porto do açu.png" alt="porto" class="logo-large">
-                        <img src="img/logos/rolls_royce-removebg-preview.png" alt="rollsRoyce" id="rollsRoyce">
-                        <img src="img/logos/shell-removebg-preview.png" alt="shell" class="logo-large">
-                        <img src="img/logos/siemens-removebg-preview.png" alt="siemens">
-                        <img src="img/logos/subsea-removebg-preview.png" alt="subsea" class="logo-large">
-                    </div>
-                </div>
-            </div>
+          <!--  <div class="video">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="img/Web Digital Twin v5 sem audio 3min.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeo HTML5.
+                </video>
+            </div> -->
+            <video autoplay muted loop playsinline preload="auto">
+                <source src="img/Web Digital Twin v5 sem audio 3min.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo HTML5.
+            </video>
         </div>
     </section>
 
@@ -80,22 +49,136 @@
                 <p>Réplicas virtuais precisas para simulação de cenários e monitoramento estrutural.</p>
             </div>
             <div class="tech-card">
-                <div class="tech-icon"><i class="fa-solid fa-gear"></i></div>
-                <h4>Elementos Finitos</h4>
-                <p>Conectividade total entre geometria e física para uma validação virtual ininterrupta.</p>
+                <div class="tech-icon"><i class="fa-brands fa-connectdevelop"></i></div>
+                <h4>IoT Industrial</h4>
+                <p>Dados em tempo real dos ativos para monitoramento contínuo, redução de falhas e maior confiabilidade operacional.</p>
             </div>
         </div>
     </section>
 
-<section class="industrias">
+        <section class="logo-carousel-section">
+        <div class="container-tech" style="flex-direction: column; gap: 0;"> 
+            <h3>Empresas que confiam em nossa tecnologia</h3>
+            
+            <div class="carousel-container" id="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="logo-slide" id="logoSlide">
+                        <img src="img/logos/engie-removebg-preview.png" alt="engie" class="logo-large">
+                        <img src="img/logos/marinha-removebg-preview.png" alt="marinha" class="logo-large">
+                        <img src="img/logos/modec-removebg-preview.png" alt="modec" id="modec">
+                        <img src="img/logos/porto do açu.png" alt="porto" class="logo-large">
+                        <img src="img/logos/rolls_royce-removebg-preview.png" alt="rollsRoyce" id="rollsRoyce">
+                        <img src="img/logos/shell-removebg-preview.png" alt="shell" class="logo-large">
+                        <img src="img/logos/siemens-removebg-preview.png" alt="siemens">
+                        <img src="img/logos/subsea-removebg-preview.png" alt="subsea" class="logo-large">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="industrias-v2">
+        <div class="section-header">
+            <h3>Nossas Atuações</h3>
+            <h2>Indústrias</h2>
+            <p class="subtitle">Soluções aplicadas por setor, com foco em confiabilidade e performance.</p>
+        </div>
+
+      <div class="container">
+        <div class="grid">
+          <article class="box">
+            <div class="media">
+              <img src="img/industrias/offshore.jpg" alt="Offshore e Naval">
+            </div>
+            <div class="content">
+              <h3>Offshore & Naval</h3>
+              <p>Integridade em alto mar com previsões de corrosão e fadiga.</p>
+              <a href="naval.html" class="btn-hero">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="box">
+            <div class="media">
+              <img src="img/industrias/oleo.jpg" alt="Óleo e Gás">
+            </div>
+            <div class="content">
+              <h3>Óleo & Gás</h3>
+              <p>Modelos e dados para decisões rápidas em ativos críticos.</p>
+              <a href="#" class="btn-hero">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="box">
+            <div class="media">
+              <img src="img/industrias/manufatura.jpg" alt="Indústria e Manufatura">
+            </div>
+            <div class="content">
+              <h3>Indústria & Manufatura</h3>
+              <p>IoT no chão de fábrica para reduzir paradas e perdas.</p>
+              <a href="#" class="btn-hero">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="box">
+            <div class="media">
+              <img src="img/industrias/energia.jpg" alt="Energia">
+            </div>
+            <div class="content">
+              <h3>Energia</h3>
+              <p>Mais previsibilidade na operação e manutenção de ativos.</p>
+              <a href="#" class="btn-hero">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="box">
+            <div class="media">
+              <img src="img/industrias/infraestrutura.jpg" alt="Infraestrutura">
+            </div>
+            <div class="content">
+              <h3>Infraestrutura</h3>
+              <p>Monitoramento contínuo de estruturas e intervenções precisas.</p>
+              <a href="#" class="btn-hero">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="box">
+            <div class="media">
+              <img src="img/industrias/smartCitiesGemini.png" alt="Smart Cities">
+            </div>
+            <div class="content">
+              <h3>Smart Cities</h3>
+              <p>Dados integrados para gestão urbana mais eficiente.</p>
+              <a href="#" class="btn-hero">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+
+<!--    <section class="industrias">
         <div class="container">
             <ul class="industrias-nav">
-                <li class="nav-item active" data-target="offshoreNaval">Offshore e Naval</li>
-                <li class="nav-item" data-target="oleoGas">Óleo de Gás</li>
-                <li class="nav-item" data-target="industriaManufatura">Indústria e Manufatura</li>
-                <li class="nav-item" data-target="energia">Energia</li>
-                <li class="nav-item" data-target="infraestrutura">Infraestrutura</li>
-                <li class="nav-item" data-target="smartCities">Smart Cities</li>
+                <a href="">
+                    <li class="nav-item active" data-target="offshoreNaval">Offshore e Naval</li>
+                </a>
+                <a href="">
+                    <li class="nav-item" data-target="oleoGas">Óleo de Gás</li>
+                </a>
+                <a href="">
+                    <li class="nav-item" data-target="industriaManufatura">Indústria e Manufatura</li>
+                </a>
+                <a href="">
+                    <li class="nav-item" data-target="energia">Energia</li>                    
+                </a>
+                <a href="">
+                    <li class="nav-item" data-target="infraestrutura">Infraestrutura</li>
+                </a>
+                <a href="">
+                    <li class="nav-item" data-target="smartCities">Smart Cities</li>
+                </a>
+
             </ul>
 
             <div class="industrias-content-wrapper">
@@ -186,7 +269,7 @@
                             <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
                         </div>
                         <div class="image-container">
-                            <img src="img/industrias/smart.jpg" alt="Smart Cities">
+                            <img src="img/industrias/smartCitiesGemini.jpg" alt="Smart Cities">
                         </div>
                     </div>
                     <div class="text-description">
@@ -198,8 +281,74 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
 
+    <footer class="site-footer">
+      <div class="footer-container">
+
+        <div class="footer-top">
+          <div class="footer-brand">
+            <!-- Se você tiver logo, pode usar <img> aqui -->
+            <h3>PhDsoft</h3>
+            <p>
+              Engenharia aumentada para monitoramento, previsão e decisão.
+              Integre IA e IoT e reduza paradas com mais confiabilidade operacional.
+            </p>
+
+            <div class="footer-cta">
+              <a href="#" class="btn-hero footer-btn">Falar com um especialista <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-cols">
+            <div class="footer-col">
+              <h4>Produto</h4>
+              <ul>
+                <li><a href="#technology">Tecnologia</a></li>
+                <li><a href="#industries">Indústrias</a></li>
+                <li><a href="#cases">Casos de uso</a></li>
+                <li><a href="#security">Segurança</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4>Empresa</h4>
+              <ul>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#careers">Carreiras</a></li>
+                <li><a href="#press">Imprensa</a></li>
+                <li><a href="#contact">Contato</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4>Contato</h4>
+              <ul class="footer-contact">
+                <li><i class="fas fa-envelope"></i> <a href="mailto:contato@phdsoft.com">contato@phdsoft.com</a></li>
+                <li><i class="fas fa-phone"></i> <a href="tel:+5521999999999">+55 (21) 99999-9999</a></li>
+                <li><i class="fas fa-location-dot"></i> Rio de Janeiro, Brasil</li>
+              </ul>
+
+              <div class="footer-social">
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© <span id="year"></span> PhDsoft. Todos os direitos reservados.</p>
+          <div class="footer-legal">
+            <a href="#privacy">Política de Privacidade</a>
+            <span class="dot-sep">•</span>
+            <a href="#terms">Termos de Uso</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

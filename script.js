@@ -28,34 +28,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const track = document.querySelector(".carousel-track");
-    
-    // Seleciona o conteúdo original (a div .logo-slide)
-    const originalContent = track.querySelector(".logo-slide");
-    
-    // Clona o conteúdo
-    const clonedContent = originalContent.cloneNode(true);
-    
-    // Adiciona o clone ao final do trilho
-    track.appendChild(clonedContent);
+window.addEventListener("load", () => {
+  const container = document.getElementById("carousel");
+  const track = document.getElementById("carouselTrack");
+  const set = document.getElementById("logoSlide");
+  if (!container || !track || !set) return;
 
-    // Ajuste de Animação CSS via JS (para garantir precisão matemática)
-    // O CSS keyframe "scroll" deve mover exatamente -50% do tamanho total do trilho
-    // já que agora o trilho tem 2 metades iguais.
-    
-    // Vamos injetar uma regra específica para garantir que o loop seja perfeito
-    // baseada na largura. Mas, para simplificar, a regra CSS:
-    // transform: translateX(-50%); 
-    // funciona na maioria dos casos se aplicarmos a animação no container correto.
-    
-    // Ajuste no CSS (injeção dinâmica para garantir que funcione com o clone):
-    const styleSheet = document.createElement("style");
-    styleSheet.innerText = `
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* Move metade, que é o tamanho do set original */
-        }
-    `;
-    document.head.appendChild(styleSheet);
+  // duplica até garantir que não haverá "buraco"
+  while (track.scrollWidth < container.clientWidth * 2) {
+    const clone = set.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.querySelectorAll("img").forEach(img => img.alt = "");
+    track.appendChild(clone);
+  }
+
+  // distância exata do loop = largura do set original
+  const setWidth = set.getBoundingClientRect().width;
+  track.style.setProperty("--set-width", `${setWidth}px`);
 });
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     const track = document.querySelector(".carousel-track");
+//     
+//     // Seleciona o conteúdo original (a div .logo-slide)
+//     const originalContent = track.querySelector(".logo-slide");
+//     
+//     // Clona o conteúdo
+//     const clonedContent = originalContent.cloneNode(true);
+//     
+//     // Adiciona o clone ao final do trilho
+//     track.appendChild(clonedContent);
+// 
+//     // Ajuste de Animação CSS via JS (para garantir precisão matemática)
+//     // O CSS keyframe "scroll" deve mover exatamente -50% do tamanho total do trilho
+//     // já que agora o trilho tem 2 metades iguais.
+//     
+//     // Vamos injetar uma regra específica para garantir que o loop seja perfeito
+//     // baseada na largura. Mas, para simplificar, a regra CSS:
+//     // transform: translateX(-50%); 
+//     // funciona na maioria dos casos se aplicarmos a animação no container correto.
+//     
+//     // Ajuste no CSS (injeção dinâmica para garantir que funcione com o clone):
+//     const styleSheet = document.createElement("style");
+//     styleSheet.innerText = `
+//         @keyframes scroll {
+//             0% { transform: translateX(0); }
+//             100% { transform: translateX(-50%); } /* Move metade, que é o tamanho do set original */
+//         }
+//     `;
+//     document.head.appendChild(styleSheet);
+// });
+// 
+// window.addEventListener("load", () => {
+//   const track = document.getElementById("carouselTrack");
+//   const slide = document.getElementById("logoSlide");
+//   if (!track || !slide) return;
+// 
+//   // cria cópia do slide e coloca ao lado
+//   const clone = slide.cloneNode(true);
+//   clone.setAttribute("aria-hidden", "true");
+//   clone.querySelectorAll("img").forEach(img => img.alt = "");
+// 
+//   track.appendChild(clone);
+// });
+
+
+const header = document.querySelector(".site-header");
+
+if (header) {
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 120);
+  });
+}

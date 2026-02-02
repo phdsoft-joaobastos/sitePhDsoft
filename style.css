@@ -56,63 +56,116 @@ img {
 /* =========================================
    3. HEADER / NAVBAR
    ========================================= */
-header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
+
+.site-header{
     position: sticky;
     top: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow-sm);
-    border-bottom: 1px solid #e2e8f0;
-}
+    z-index: 9999;
 
-.logo {
-    width: 120px;;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+
+    padding: 1rem 5%;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+
+    transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 
-.nav ul {
+/* Logo */
+.site-header .logo img{
+    height: 34px;
+    width: auto;
+}
+
+/* Nav */
+.site-header .nav ul{
     display: flex;
     gap: 2rem;
 }
 
-.nav a {
+.site-header .nav a{
+    font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-gray);
-    transition: color 0.3s;
-    font-size: 0.95rem;
+    transition: color 0.2s ease;
 }
 
-.nav a:hover {
+.site-header .nav a:hover{
     color: var(--primary-blue);
 }
 
-.contato .btn {
+/* Botão */
+.site-header .btn{
     background: var(--primary-blue);
-    color: var(--white);
+    color: white;
     padding: 0.6rem 1.5rem;
-    border-radius: var(--radius);
+    border-radius: 999px;
     font-weight: 600;
     font-size: 0.9rem;
-    transition: background 0.3s;
+    transition: background 0.2s ease;
 }
 
-.contato .btn:hover {
+.site-header .btn:hover{
     background: var(--primary-dark);
 }
+
+/* header azul */
+.site-header.scrolled{
+    background: linear-gradient(
+        135deg,
+        rgba(15, 32, 39, 0.98),
+        rgba(32, 58, 67, 0.95),
+        rgba(44, 83, 100, 0.95)
+    );
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Links brancos no scroll */
+.site-header.scrolled .nav a{
+    color: rgba(255,255,255,0.9);
+}
+
+.site-header.scrolled .nav a:hover{
+    color: #ffffff;
+}
+
+/* Botão invertido no scroll */
+.site-header.scrolled .btn{
+    background: #ffffff;
+    color: var(--primary-blue);
+}
+
+.site-header.scrolled .btn:hover{
+    background: #e2e8f0;
+}
+
+@media (max-width: 900px){
+    .site-header{
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .site-header .nav ul{
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 
 /* =========================================
    4. HERO SECTION
    ========================================= */
 .hero {
     background: linear-gradient(135deg, rgba(15, 32, 39, 0.9) 0%, rgba(32, 58, 67, 0.8) 50%, rgba(44, 83, 100, 0.8) 100%),
-                url('img/background.jpg');
+                url('img/backgroundGemini.png');
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -172,17 +225,39 @@ header {
     background: var(--primary-dark);
 }
 
-.hero .video {
+/*.hero .video {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: var(--radius);
-    height: 350px;
     backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    height: 300px;
 }
+.hero .video video{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background: #000;
+} */
+video {
+    height: 300px;
+    border-radius: var(--radius);
+    
+}
+
+@media (max-width: 600px){
+  video{
+    height: 170px;
+  }
+}
+
 
 /* =========================================
    5. CARROSSEL INFINITO
@@ -210,29 +285,37 @@ header {
     padding: 0 1rem;
 }
 
-.carousel-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+.carousel-container{
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.carousel-track {
-    display: flex;
-    width: max-content;
-    animation: scroll 40s linear infinite;
+.carousel-track{
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee 40s linear infinite;
 }
 
-.logo-slide {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-size);
-    padding-right: var(--gap-size);
-    flex-shrink: 0;
+.logo-slide{
+  display: flex;
+  align-items: center;
+  gap: var(--gap-size);
+  padding-right: var(--gap-size);
+  flex-shrink: 0;
+}
+
+@keyframes marquee{
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-1 * var(--set-width))); }
 }
 
 .logo-slide img {
@@ -251,10 +334,6 @@ header {
 #modec { height: 100px; }
 .logo-slide img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
 
 /* =========================================
    6. TECNOLOGIA
@@ -449,6 +528,459 @@ header {
     font-size: 1.1rem;
 }
 
+/* =================================================
+   CASOS DE USO – OFFSHORE & NAVAL (AJUSTE FINO)
+   ================================================= */
+
+/* Grid mais equilibrado: imagem como apoio */
+
+
+/* =================================================
+    8. INDUSTRIAS V2
+     ========================================
+*/
+
+.industrias-v2 .container{
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.industrias-v2 .subtitle{
+  margin-top: 8px;
+  opacity: .8;
+  max-width: 720px;
+}
+
+.industrias-v2 .grid{
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Card */
+.industrias-v2 .box{
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.industrias-v2 .box:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.industrias-v2 .media{
+  height: 170px;
+  overflow: hidden;
+}
+
+.industrias-v2 .media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.industrias-v2 .content{
+  padding: 16px 16px 18px;
+}
+
+.industrias-v2 .content h3{
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.industrias-v2 .content p{
+  margin: 0 0 14px;
+  opacity: .85;
+}
+
+/* Responsivo */
+@media (max-width: 980px){
+  .industrias-v2 .grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px){
+  .industrias-v2 .grid{
+    grid-template-columns: 1fr;
+  }
+  .industrias-v2 .media{ height: 190px; }
+}
+
+/* ==================================
+footer 
+=======================*/
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer{
+  background: linear-gradient(
+    135deg,
+    rgba(15, 32, 39, 0.98) 0%,
+    rgba(32, 58, 67, 0.95) 50%,
+    rgba(44, 83, 100, 0.95) 100%
+  );
+  color: rgba(255,255,255,0.88);
+  padding: 4rem 0 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 10rem;
+}
+
+
+.footer-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.footer-top{
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.footer-brand h3{
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.2px;
+}
+
+.footer-brand p{
+  margin: 0 0 18px;
+  color: rgba(255,255,255,0.7);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.footer-cta .footer-btn{
+  padding: 0.85rem 1.3rem;
+  font-size: 0.95rem;
+}
+
+.footer-cols{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.footer-col h4{
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+}
+
+.footer-col ul{
+  display: grid;
+  gap: 10px;
+}
+
+.footer-col a{
+  color: rgba(255,255,255,0.72);
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-col a:hover{
+  color: #fff;
+}
+
+.footer-contact li{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: rgba(255,255,255,0.72);
+}
+
+.footer-contact i{
+  width: 18px;
+  color: rgba(144, 205, 244, 0.95);
+}
+
+.footer-social{
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social a{
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.88);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.footer-social a:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.07);
+}
+
+.footer-bottom{
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-bottom p{
+  margin: 0;
+  color: rgba(255,255,255,0.62);
+}
+
+.footer-legal{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-legal a{
+  color: rgba(255,255,255,0.62);
+}
+
+.footer-legal a:hover{
+  color: rgba(255,255,255,0.9);
+}
+
+.dot-sep{
+  color: rgba(255,255,255,0.35);
+}
+
+/* Responsivo */
+@media (max-width: 900px){
+  .footer-top{
+    grid-template-columns: 1fr;
+  }
+
+  .footer-cols{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px){
+  .footer-cols{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* offshore */
+/* ==========================
+   OFFSHORE PAGE (add-on)
+   cole no final do style.css
+   ========================== */
+
+.hero--offshore{
+  /* troca a imagem se quiser */
+  background:
+    linear-gradient(135deg, rgba(15, 32, 39, 0.92) 0%, rgba(32, 58, 67, 0.86) 50%, rgba(44, 83, 100, 0.86) 100%),
+    url("img/industrias/offshore.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.btn-hero--ghost{
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.btn-hero--ghost:hover{
+  background: rgba(255,255,255,0.12);
+}
+
+.hero-badges{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.86);
+  font-size: 0.9rem;
+}
+
+.hero-media{
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.30);
+  aspect-ratio: 16/9;
+}
+
+.hero-media video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0; /* quem arredonda é o container */
+  display: block;
+}
+
+/* Seções */
+.section--light{
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.section--tight{
+  padding-top: 4rem;
+}
+
+/* Steps */
+.steps{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.step{
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.step-num{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(0,112,192,0.12);
+  color: var(--primary-blue);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-body h4{
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.step-body p{
+  margin: 0;
+  color: var(--text-gray);
+}
+
+/* Contato */
+.contact-panel{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+}
+
+.contact-box{
+  background: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 22px;
+}
+
+.contact-box--cta{
+  background: linear-gradient(135deg, rgba(15, 32, 39, 0.96), rgba(32, 58, 67, 0.92), rgba(44, 83, 100, 0.92));
+  color: rgba(255,255,255,0.92);
+  border-color: rgba(255,255,255,0.10);
+}
+
+.contact-box--cta .muted{
+  color: rgba(255,255,255,0.72);
+}
+
+.checklist{
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.checklist li{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--text-gray);
+}
+
+.checklist i{
+  margin-top: 2px;
+  color: var(--primary-blue);
+}
+
+.contact-box--cta .checklist li{
+  color: rgba(255,255,255,0.80);
+}
+
+.contact-actions{
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.muted{
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* Responsivo */
+@media (max-width: 900px){
+  .steps{
+    grid-template-columns: 1fr;
+  }
+  .contact-panel{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
 /* =========================================
    8. RESPONSIVIDADE (MOBILE & TABLET)
    ========================================= */
@@ -493,9 +1025,10 @@ header {
     }
 
     /* ABAS (INDÚSTRIAS): Scroll Horizontal */
-    .container {
-        flex-direction: column;
-        gap: 2rem;
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
     }
 
     .industrias-nav {
