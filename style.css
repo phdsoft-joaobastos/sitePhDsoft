@@ -1012,6 +1012,217 @@ footer
 }
 
 
+/* contato page */
+/* Hero Compacto */
+.hero-contact {
+    background: linear-gradient(135deg, rgba(15, 32, 39, 0.95) 0%, rgba(32, 58, 67, 0.9) 100%),
+                url('img/backgroundGemini.png'); /* Usa a mesma imagem base, mas mais escura */
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 5% 4rem; /* Menor que a home */
+    text-align: center;
+    color: var(--white);
+}
+
+.conteudo-contact {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.conteudo-contact h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.conteudo-contact p {
+    font-size: 1.15rem;
+    color: #cbd5e0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Layout Grid Principal */
+.contact-main {
+    padding: 4rem 5%;
+    background-color: var(--bg-light);
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Coluna do form um pouco maior */
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Coluna da Esquerda (Info) */
+.contact-info .info-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.contact-info .info-header p {
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+.benefit-list {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.benefit-list li {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.benefit-list i {
+    color: var(--primary-blue);
+    font-size: 1.4rem;
+    margin-top: 3px;
+}
+
+.benefit-list strong {
+    display: block;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.benefit-list p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+
+.direct-contact {
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.direct-contact h4 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.direct-contact p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-gray);
+    margin-bottom: 0.8rem;
+}
+
+/* Coluna da Direita (Formulário) */
+.contact-form-wrapper {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #edf2f7;
+}
+
+.commercial-form h3 {
+    margin: 0 0 0.5rem;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+}
+
+.form-subtitle {
+    margin-bottom: 2rem;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* Estilos dos Inputs */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px; /* Levemente menor que o card */
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: #fcfcfc;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 112, 192, 0.1);
+    background: #fff;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Botão Full Width */
+.btn-full {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.privacy-note {
+    font-size: 0.8rem;
+    color: #a0aec0;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Responsividade da Página de Contato */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr; /* Empilha tudo */
+        gap: 3rem;
+    }
+    
+    .contact-form-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr; /* Inputs um embaixo do outro no mobile */
+    }
+    
+    .conteudo-contact h1 {
+        font-size: 2rem;
+    }
+}
+
+
 
 
 
