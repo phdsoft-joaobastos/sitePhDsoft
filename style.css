@@ -120,12 +120,19 @@ img {
 
 /* header azul */
 .site-header.scrolled{
-    background: linear-gradient(
+   /* background: linear-gradient(
         135deg,
         rgba(15, 32, 39, 0.98),
         rgba(32, 58, 67, 0.95),
         rgba(44, 83, 100, 0.95)
-    );
+    ); */ /*    portos, wind turbine,  */
+
+    background: linear-gradient(
+        135deg,
+        rgba(25, 5, 5, 0.98),
+        rgba(60, 10, 15, 0.96),
+        rgba(110, 20, 25, 0.95)
+    ) ;
     border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
