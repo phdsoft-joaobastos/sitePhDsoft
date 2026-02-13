@@ -189,7 +189,7 @@ img {
 
 .hero .texto h2 {
     color: #90cdf4;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-size: 0.9rem;
     letter-spacing: 2px;
     margin-bottom: 1rem;
@@ -544,6 +544,12 @@ video {
 .lang-btn.active{
   border-color: rgba(255,255,255,0.9);
   box-shadow: 0 0 0 2px rgba(255,255,255,0.15) inset;
+}
+
+.lang-switch {
+    flex-direction: column !important;
+    top: 50% !important;
+    transform: translateY(-50%);
 }
 
 

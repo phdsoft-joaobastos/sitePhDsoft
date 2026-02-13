@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhDsoft Insights - Cases e Tecnologia</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Ajuste das bandeiras (herdado) */
+        .lang-switch {
+            flex-direction: column !important;
+            top: 50% !important;
+            transform: translateY(-50%);
+        }
+
+        /* CABEÇALHO DA PÁGINA (Estilo Tech Clean) */
+        .journal-header {
+            padding: 5rem 5% 3rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #fff, var(--bg-light));
+            border-bottom: 1px solid var(--stroke);
+            margin-bottom: 4rem;
+        }
+
+        .journal-label {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .journal-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .journal-date {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-top: 1rem;
+            display: inline-block;
+            background: rgba(0,0,0,0.03);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* MANCHETE PRINCIPAL (FEATURED) - Layout NYT, Visual PhDsoft */
+        .featured-article {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr; /* Imagem um pouco maior */
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .featured-img-container {
+            border-radius: var(--radius); /* Cantos arredondados (Identidade) */
+            overflow: hidden;
+            box-shadow: var(--shadow-lg); /* Sombra (Identidade) */
+            position: relative;
+        }
+
+        .featured-img-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-img-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .featured-content {
+            padding-right: 1rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+            background: rgba(0, 112, 192, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+        }
+
+        .featured-headline {
+            font-size: 2.4rem; /* Fonte grande mas Sans-serif */
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-dark);
+            margin: 0 0 1.5rem 0;
+            letter-spacing: -0.5px;
+        }
+
+        .featured-excerpt {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+
+        .meta-sep { width: 4px; height: 4px; background: #cbd5e0; border-radius: 50%; }
+
+        /* GRID DE ARTIGOS SECUNDÁRIOS */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--stroke); /* Linha fina tech */
+        }
+
+        /* Card estilo PhDsoft (Branco, Sombra suave, Borda) */
+        .article-card {
+            background: var(--white);
+            border: 1px solid var(--stroke);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: #cbd5e0;
+        }
+
+        .card-img-wrapper {
+            overflow: hidden;
+            height: 220px;
+            width: 100%;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-headline {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0 0 0.8rem 0;
+            line-height: 1.4;
+        }
+
+        .card-headline:hover {
+            color: var(--primary-blue);
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            flex: 1; /* Empurra o footer para baixo */
+        }
+
+        .card-footer {
+            padding-top: 1rem;
+            border-top: 1px solid var(--bg-light);
+            font-size: 0.85rem;
+            color: #718096;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* NEWSLETTER BOX (Estilo Tech) */
+        .newsletter-section {
+            margin-top: 6rem;
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #fff 100%);
+            border-top: 1px solid var(--stroke);
+            text-align: center;
+        }
+
+        .newsletter-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--stroke);
+        }
+
+        .newsletter-box h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .email-input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 2rem;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--stroke);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .email-input:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0,112,192,0.1);
+        }
+
+        /* Responsivo */
+        @media (max-width: 900px) {
+            .featured-article { grid-template-columns: 1fr; gap: 2rem; }
+            .featured-img-container { order: 1; }
+            .featured-content { order: 2; }
+            .featured-headline { font-size: 1.8rem; }
+            .articles-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .journal-header { padding: 4rem 5% 2rem; }
+            .journal-title { font-size: 2.2rem; }
+            .email-input-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logos/Logo phdsoft.png" alt="PhDsoft">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html#tecnologia">Soluções</a></li>
+                <li><a href="index.html#setores">Tecnologia</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="cases.html" style="color: var(--primary-blue); font-weight: 700;">Insights</a></li>
+            </ul>
+        </nav>
+        <div class="contato">
+            <a href="contato.html" class="btn">Entre em Contato</a>
+        </div>
+    </header>
+
+    <div class="lang-switch" aria-label="Language switcher">
+      <a href="index.html" class="lang-btn" aria-label="Português" title="Português">
+        <img src="img/flags/brazil.svg" alt="Português (Brasil)" width="26" height="18">
+      </a>
+      <a href="langs\en\index-en.html" class="lang-btn" aria-label="English" title="English">
+        <img src="img/flags/usa.svg" alt="English" width="26" height="18">
+      </a>
+      <a href="langs\de\index-de.html" class="lang-btn" aria-label="Deutsch" title="Deutsch">
+        <img src="img/flags/germany.svg" alt="Deutsch" width="26" height="18">
+      </a>
+      <a href="langs\fr\index-fr.html" class="lang-btn" aria-label="Français" title="Français">
+        <img src="img/flags/france.svg" alt="Français" width="26" height="18">
+      </a>
+    </div>
+
+    <div class="journal-header reveal">
+        <span class="journal-label">PhDsoft Engineering Review</span>
+        <h1 class="journal-title">Insights & Resultados</h1>
+        <span class="journal-date">Atualizado: Fevereiro, 2024</span>
+    </div>
+
+    <div class="container-v2">
+        
+        <article class="featured-article reveal">
+            <div class="featured-content">
+                <span class="tag">Offshore & Naval</span>
+                <h2 class="featured-headline">O Fim da "Manutenção Corretiva": Como a Transpetro Antecipou Falhas em 2 Anos</h2>
+                <p class="featured-excerpt">
+                    Em um setor onde a corrosão é invisível e implacável, a adoção de Gêmeos Digitais 4D permitiu não apenas ver o futuro da estrutura, mas alterar seu destino econômico. Um mergulho profundo na engenharia preditiva.
+                </p>
+                
+                <div class="meta-info">
+                    <span><i class="far fa-user"></i> Duperron Ribeiro</span>
+                    <span class="meta-sep"></span>
+                    <span><i class="far fa-clock"></i> 6 min leitura</span>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="#" class="btn-hero">Ler Artigo Completo</a>
+                </div>
+            </div>
+
+            <div class="featured-img-container">
+                <a href="#">
+                    <img src="img/industrias/offshore.jpg" alt="Navio Offshore Transpetro">
+                </a>
+            </div>
+        </article>
+
+        <div class="articles-grid">
+
+            <article class="article-card reveal delay-100">
+                <div class="card-img-wrapper">
+                    <img src="img/industrias/oleo.jpg" alt="Plataforma de Petróleo" class="card-img">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Óleo & Gás</span>
+                    <h3 class="card-headline"><a href="#">Reduzindo o OPEX em 30% com Gestão de Risco</a></h3>
+                    <p class="card-excerpt">
+                        Como grandes operadores estão abandonando planilhas estáticas e adotando modelos dinâmicos para priorizar o orçamento.
+                    </p>
+                    <div class="card-footer">
+                        <span>4 min leitura</span>
+                        <span>Case Study</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card reveal delay-200">
+                <div class="card-img-wrapper">
+                    <img src="img/industrias/manufatura.jpg" alt="Fábrica Inteligente" class="card-img">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Indústria 4.0</span>
+                    <h3 class="card-headline"><a href="#">A Fábrica que "Fala": IoT na Prevenção de Paradas</a></h3>
+                    <p class="card-excerpt">
+                        Um estudo de caso sobre como sensores de vibração integrados à IA evitaram uma falha catastrófica em uma linha de montagem.
+                    </p>
+                    <div class="card-footer">
+                        <span>3 min leitura</span>
+                        <span>Artigo Técnico</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card reveal delay-300">
+                <div class="card-img-wrapper">
+                    <img src="img/industrias/energia.jpg" alt="Parque Eólico" class="card-img">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Energia Renovável</span>
+                    <h3 class="card-headline"><a href="#">Estendendo a Vida Útil de Ativos Eólicos Offshore</a></h3>
+                    <p class="card-excerpt">
+                        O desafio da fadiga em turbinas no mar e como a simulação 4D garante a viabilidade econômica de parques antigos.
+                    </p>
+                    <div class="card-footer">
+                        <span>5 min leitura</span>
+                        <span>Whitepaper</span>
+                    </div>
+                </div>
+            </article>
+
+             <article class="article-card reveal delay-100">
+                <div class="card-img-wrapper">
+                    <img src="img/industrias/smartCitiesGemini.png" alt="Cidade Inteligente" class="card-img">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Smart Cities</span>
+                    <h3 class="card-headline"><a href="#">Pontes Digitais: Segurança Pública e Monitoramento</a></h3>
+                    <p class="card-excerpt">
+                        A aplicação da tecnologia PhDsoft para monitorar a integridade de viadutos e pontes urbanas em tempo real.
+                    </p>
+                    <div class="card-footer">
+                        <span>4 min leitura</span>
+                        <span>Governo</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card reveal delay-200">
+                <div class="card-img-wrapper">
+                    <img src="img/industrias/infraestrutura.jpg" alt="Infraestrutura Portuária" class="card-img">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Infraestrutura</span>
+                    <h3 class="card-headline"><a href="#">O Porto do Futuro: Gestão de Ativos Complexos</a></h3>
+                    <p class="card-excerpt">
+                        Centralização de dados de inspeção em estruturas portuárias para conformidade regulatória e eficiência logística.
+                    </p>
+                    <div class="card-footer">
+                        <span>3 min leitura</span>
+                        <span>Case Study</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card reveal delay-300" style="background: #f8fafc;">
+                <div class="card-body">
+                    <span class="card-tag" style="color: var(--text-dark);">Opinião do CEO</span>
+                    <h3 class="card-headline" style="font-size: 1.4rem;">"Por que a Engenharia precisa parar de olhar apenas para o passado."</h3>
+                    <p class="card-excerpt">
+                        Uma reflexão sobre a mudança de paradigma: da análise de falhas passadas para a previsão do comportamento futuro.
+                    </p>
+                    <div class="card-footer" style="border-top-color: #e2e8f0;">
+                        <span>Editorial</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <section class="newsletter-section reveal">
+        <div class="newsletter-box">
+            <h3>Engenharia inteligente na sua caixa de entrada.</h3>
+            <p style="color: var(--text-gray);">
+                Receba análises técnicas, novos cases e tendências de mercado quinzenalmente.
+            </p>
+            <form class="email-input-group" action="#">
+                <input type="email" class="email-input" placeholder="Seu e-mail corporativo">
+                <button type="submit" class="btn-hero" style="border-radius: 8px;">Inscrever-se</button>
+            </form>
+            <p style="font-size: 0.75rem; color: #a0aec0; margin-top: 1rem;">
+                Respeitamos sua privacidade. Cancele quando quiser.
+            </p>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand reveal">
+                    <h3>PhDsoft</h3>
+                    <p>
+                        Engenharia aumentada para monitoramento, previsão e decisão.
+                        Integre IA e IoT e reduza paradas com mais confiabilidade operacional.
+                    </p>
+                    <div class="footer-cta">
+                        <a href="#" class="btn-hero footer-btn">Falar com um especialista</a>
+                    </div>
+                </div>
+
+                <div class="footer-cols reveal delay-200">
+                    <div class="footer-col">
+                        <h4>Produto</h4>
+                        <ul>
+                            <li><a href="#tecnologia">Tecnologia</a></li>
+                            <li><a href="#setores">Indústrias</a></li>
+                            <li><a href="#cases">Cases de Sucesso</a></li>
+                            <li><a href="#seguranca">Segurança</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="#about">Sobre</a></li>
+                            <li><a href="#careers">Carreiras</a></li>
+                            <li><a href="#press">Imprensa</a></li>
+                            <li><a href="#contact">Contato</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contato</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:contato@phdsoft.com">contato@phdsoft.com</a></li>
+                            <li><i class="fas fa-phone"></i> <a href="tel:+5521999999999">+55 (21) 99999-9999</a></li>
+                            <li><i class="fas fa-location-dot"></i> Rio de Janeiro, Brasil</li>
+                        </ul>
+
+                        <div class="footer-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> PhDsoft. Todos os direitos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Política de Privacidade</a>
+                    <span class="dot-sep">•</span>
+                    <a href="#terms">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

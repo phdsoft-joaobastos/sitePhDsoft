@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - PhDsoft</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Grid para Texto + Imagem (Quem Somos) */
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-image img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            height: auto;
+        }
+
+        /* Grid de Estatísticas */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Grid de Time */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border: 1px solid var(--stroke);
+            border-radius: var(--radius);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .team-img {
+            width: 100%;
+            height: 250px;
+            background-color: #e2e8f0; /* Placeholder color */
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-info h4 {
+            margin: 0 0 5px;
+            color: var(--text-dark);
+        }
+
+        .team-info span {
+            color: var(--primary-blue);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
+            .about-split { grid-template-columns: 1fr; gap: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .lang-switch {
+            flex-direction: column !important;
+            top: 50% !important;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logos/Logo phdsoft.png" alt="PhDsoft">
+            </a>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html#tecnologia">Soluções</a></li>
+                <li><a href="index.html#setores">Tecnologia</a></li>
+                <li><a href="sobre.html" style="color: var(--primary-blue);">Sobre Nós</a></li>
+                <li><a href="index.html#cases">Cases de Sucesso</a></li>
+            </ul>
+        </nav>
+
+        <div class="contato">
+            <a href="contato.html" class="btn">Entre em Contato</a>
+        </div>
+    </header>
+
+    <div class="lang-switch" aria-label="Language switcher">
+      <a href="index.html" class="lang-btn" aria-label="Português" title="Português">
+        <img src="img/flags/brazil.svg" alt="Português (Brasil)" width="26" height="18">
+      </a>
+      <a href="langs\en\index-en.html" class="lang-btn" aria-label="English" title="English">
+        <img src="img/flags/usa.svg" alt="English" width="26" height="18">
+      </a>
+      <a href="langs\de\index-de.html" class="lang-btn" aria-label="Deutsch" title="Deutsch">
+        <img src="img/flags/germany.svg" alt="Deutsch" width="26" height="18">
+      </a>
+      <a href="langs\fr\index-fr.html" class="lang-btn" aria-label="Français" title="Français">
+        <img src="img/flags/france.svg" alt="Français" width="26" height="18">
+      </a>
+    </div>
+
+    <section class="hero" id="topo" style="padding: 5rem 5%;">
+        <div class="conteudo">
+            <div class="texto reveal">
+                <h2>Nossa Essência</h2>
+                <h1 class="reveal delay-100">Transformando engenharia em inteligência digital</h1>
+                <p class="reveal delay-200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            </div>
+            <div class="reveal delay-200" style="width: 100%; height: 300px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
+                <i class="fas fa-building fa-3x"></i>
+                </div>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="container-v2">
+            <div class="about-split">
+                <div class="about-text reveal-left">
+                    <h3>Quem Somos</h3>
+                    <h2>Pioneiros em Gêmeos Digitais 4D</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel sem mi. Proin eleifend, libero at tempus tristique, purus nisi pretium urna, non imperdiet nulla ante id tellus. 
+                    </p>
+                    <p>
+                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer fringilla, enim eget elementum elementum, massa tellus sodales odio, ut blandit nunc libero a eros.
+                    </p>
+                    <ul class="mini-list">
+                        <li><i class="fas fa-check-circle"></i> Mais de 30 anos de expertise em engenharia.</li>
+                        <li><i class="fas fa-check-circle"></i> Presença global em projetos offshore e industriais.</li>
+                        <li><i class="fas fa-check-circle"></i> Tecnologia proprietária patenteada.</li>
+                    </ul>
+                </div>
+                <div class="about-image reveal delay-200">
+                    <img src="img/industrias/smartCitiesGemini.png" alt="Inovação PhDsoft">
+                </div>
+            </div>
+
+            <div class="stats-grid reveal delay-300">
+                <div class="stat-item">
+                    <h4>+30</h4>
+                    <p>Anos de História</p>
+                </div>
+                <div class="stat-item">
+                    <h4>+100</h4>
+                    <p>Projetos Entregues</p>
+                </div>
+                <div class="stat-item">
+                    <h4>4D</h4>
+                    <p>Tecnologia Exclusiva</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Global</h4>
+                    <p>Atuação Internacional</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block section-alt" id="historia">
+        <div class="container-v2">
+            <div class="section-head reveal">
+                <h3>Trajetória</h3>
+                <h2>Nossa História</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Uma jornada de inovação constante.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="t-item reveal">
+                    <div class="t-dot">1990</div>
+                    <div class="t-card">
+                        <h4>Fundação</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Início das operações focado em engenharia computacional.</p>
+                    </div>
+                </div>
+
+                <div class="t-item reveal delay-200">
+                    <div class="t-dot">2005</div>
+                    <div class="t-card">
+                        <h4>Expansão Internacional</h4>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                    </div>
+                </div>
+
+                <div class="t-item reveal delay-400">
+                    <div class="t-dot">2015</div>
+                    <div class="t-card">
+                        <h4>Lançamento do Web Digital Twin</h4>
+                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+                    </div>
+                </div>
+
+                <div class="t-item reveal delay-500">
+                    <div class="t-dot">Hoje</div>
+                    <div class="t-card">
+                        <h4>Liderança em IA e IoT</h4>
+                        <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="container-v2">
+            <div class="section-head reveal">
+                <h3>Cultura</h3>
+                <h2>Nossos Valores</h2>
+                <p>O que guia nossas decisões e o desenvolvimento da nossa tecnologia.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card reveal">
+                    <div class="tech-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Inovação Contínua</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac ex nec libero tristique.</p>
+                </div>
+                <div class="tech-card reveal delay-200">
+                    <div class="tech-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Segurança em Primeiro Lugar</h4>
+                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+                </div>
+                <div class="tech-card reveal delay-400">
+                    <div class="tech-icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Parceria de Longo Prazo</h4>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block section-alt" id="time">
+        <div class="container-v2">
+            <div class="section-head reveal">
+                <h3>Liderança</h3>
+                <h2>Quem faz acontecer</h2>
+                <p>Um time multidisciplinar de engenheiros, cientistas de dados e desenvolvedores.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <img src="https://via.placeholder.com/300x300?text=CEO" alt="Foto CEO" class="team-img">
+                    <div class="team-info">
+                        <h4>Nome do Executivo</h4>
+                        <span>CEO & Fundador</span>
+                    </div>
+                </div>
+                <div class="team-card reveal delay-200">
+                    <img src="https://via.placeholder.com/300x300?text=CTO" alt="Foto CTO" class="team-img">
+                    <div class="team-info">
+                        <h4>Nome do Executivo</h4>
+                        <span>Diretor de Tecnologia</span>
+                    </div>
+                </div>
+                <div class="team-card reveal delay-400">
+                    <img src="https://via.placeholder.com/300x300?text=COO" alt="Foto COO" class="team-img">
+                    <div class="team-info">
+                        <h4>Nome do Executivo</h4>
+                        <span>Diretor de Operações</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block" id="contato">
+        <div class="container-v2 final-cta reveal">
+            <div class="final-cta__copy">
+                <h2>Quer fazer parte dessa história?</h2>
+                <p>
+                    Seja como cliente ou parceiro, descubra como a PhDsoft pode transformar seus resultados operacionais.
+                </p>
+            </div>
+            <div class="final-cta__actions">
+                <a class="btn btn-primary" href="contato.html">Falar com Especialista</a>
+                <a class="btn btn-ghost-v2" href="https://www.linkedin.com/company/phdsoft" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand reveal">
+                    <h3>PhDsoft</h3>
+                    <p>
+                        Engenharia aumentada para monitoramento, previsão e decisão.
+                        Integre IA e IoT e reduza paradas com mais confiabilidade operacional.
+                    </p>
+                    <div class="footer-cta">
+                        <a href="contato.html" class="btn-hero footer-btn">Falar com um especialista</a>
+                    </div>
+                </div>
+
+                <div class="footer-cols reveal delay-200">
+                    <div class="footer-col">
+                        <h4>Produto</h4>
+                        <ul>
+                            <li><a href="index.html#tecnologia">Tecnologia</a></li>
+                            <li><a href="index.html#setores">Indústrias</a></li>
+                            <li><a href="index.html#cases">Cases de Sucesso</a></li>
+                            <li><a href="index.html#seguranca">Segurança</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="#">Carreiras</a></li>
+                            <li><a href="#">Imprensa</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contato</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:contato@phdsoft.com">contato@phdsoft.com</a></li>
+                            <li><i class="fas fa-phone"></i> <a href="tel:+5521999999999">+55 (21) 99999-9999</a></li>
+                            <li><i class="fas fa-location-dot"></i> Rio de Janeiro, Brasil</li>
+                        </ul>
+
+                        <div class="footer-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> PhDsoft. Todos os direitos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Política de Privacidade</a>
+                    <span class="dot-sep">•</span>
+                    <a href="#terms">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
