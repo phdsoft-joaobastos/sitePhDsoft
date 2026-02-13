@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhDsoft - Engenharia Aumentada</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <div class="lang-switch" aria-label="Language switcher">
+      <a href="index.html" class="lang-btn" aria-label="Português" title="Português">
+        <img src="img/flags/brazil.svg" alt="Português (Brasil)" width="26" height="18">
+      </a>
+      <a href="langs\en\index-en.html" class="lang-btn" aria-label="English" title="English">
+        <img src="img/flags/usa.svg" alt="English" width="26" height="18">
+      </a>
+      <a href="langs\de\index-de.html" class="lang-btn" aria-label="Deutsch" title="Deutsch">
+        <img src="img/flags/germany.svg" alt="Deutsch" width="26" height="18">
+      </a>
+      <a href="langs\fr\index-fr.html" class="lang-btn" aria-label="Français" title="Français">
+        <img src="img/flags/france.svg" alt="Français" width="26" height="18">
+      </a>
+    </div>
+
+    <section class="hero" id="topo">
+        <div class="conteudo">
+            <div class="texto reveal">
+                <h2>Engenharia Inteligente</h2>
+                <h1 class="reveal delay-100">Engenharia Aumentada</h1>
+                <p class="reveal delay-200">Nossa plataforma integra IA e IoT para prever falhas, reduzir custos e aumentar a vida útil dos seus ativos industriais.</p>
+                <div class="reveal delay-300">
+                    <a href="#setores" class="btn-hero">Começar Agora</a>
+                    <a href="#tecnologia" class="btn-hero btn-hero--ghost" id="ghost-home">Soluções</a>
+                </div>
+            </div>
+            <video autoplay muted loop playsinline preload="auto" class="reveal delay-200">
+                <source src="img/Web Digital Twin v5 sem audio 3min.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo HTML5.
+            </video>
+        </div>
+    </section>
+
+    <section class="technology" id="tecnologia">
+        <div class="section-header reveal">
+            <h3>Nossa Tecnologia</h3>
+            <h2>Engenharia Aumentada: O Novo Padrão Industrial</h2>
+            <p>Com nossa tecnologia revolucionária, combinamos Inteligência Artificial, Gêmeos Digitais e IoT para potencializar sua engenharia.</p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card reveal">
+                <div class="tech-icon"><i class="fas fa-brain"></i></div>
+                <h4>Inteligência Artificial</h4>
+                <p>Algoritmos preditivos que antecipam falhas e otimizam a tomada de decisão em tempo real.</p>
+            </div>
+            <div class="tech-card reveal delay-200">
+                <div class="tech-icon"><i class="fas fa-layer-group"></i></div>
+                <h4>Gêmeos Digitais</h4>
+                <p>Réplicas virtuais precisas para simulação de cenários e monitoramento estrutural.</p>
+            </div>
+            <div class="tech-card reveal delay-400">
+                <div class="tech-icon"><i class="fa-brands fa-connectdevelop"></i></div>
+                <h4>IoT Industrial</h4>
+                <p>Dados em tempo real dos ativos para monitoramento contínuo, redução de falhas e maior confiabilidade operacional.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block section-alt" id="como-funciona">
+        <div class="container-v2">
+            <div class="section-head reveal">
+                <h3>Como entregamos</h3>
+                <h2>Do modelo ao plano de ação</h2>
+                <p>Uma jornada clara para colocar a plataforma em produção no seu ativo.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="t-item reveal">
+                    <div class="t-dot">1</div>
+                    <div class="t-card">
+                        <h4>Mapeamento do ativo</h4>
+                        <p>Organização por regiões, componentes e criticidade (estrutura, sistemas, inspeção).</p>
+                    </div>
+                </div>
+
+                <div class="t-item reveal delay-200">
+                    <div class="t-dot">2</div>
+                    <div class="t-card">
+                        <h4>Centralização de dados</h4>
+                        <p>Relatórios, fotos, medições e histórico operacional num fluxo único.</p>
+                    </div>
+                </div>
+
+                <div class="t-item reveal delay-400">
+                    <div class="t-dot">3</div>
+                    <div class="t-card">
+                        <h4>Análise e priorização</h4>
+                        <p>IA + regras de engenharia para identificar tendências, riscos e recomendações.</p>
+                    </div>
+                </div>
+
+                <div class="t-item reveal delay-500">
+                    <div class="t-dot">4</div>
+                    <div class="t-card">
+                        <h4>Decisão rastreável</h4>
+                        <p>Planejamento com evidências: o “porquê” fica registrado e auditável.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block" id="setores">
+        <div class="container-v2">
+            <div class="section-head reveal">
+                <h3>Nossas atuações</h3>
+                <h2>Mercados</h2>
+                <p>Soluções aplicadas por setor, com foco em confiabilidade e performance.</p>
+            </div>
+
+            <div class="tabs reveal delay-200">
+                <input class="tabs__radio" type="radio" name="sector" id="tab-offshore" checked>
+                <input class="tabs__radio" type="radio" name="sector" id="tab-oleo">
+                <input class="tabs__radio" type="radio" name="sector" id="tab-manuf">
+                <input class="tabs__radio" type="radio" name="sector" id="tab-energia">
+                <input class="tabs__radio" type="radio" name="sector" id="tab-infra">
+                <input class="tabs__radio" type="radio" name="sector" id="tab-cities">
+
+                <div class="tabs__nav" role="tablist" aria-label="Setores">
+                    <label class="tabs__btn" for="tab-offshore"><i class="fa-solid fa-water"></i> Offshore & Naval</label>
+                    <label class="tabs__btn" for="tab-oleo"><i class="fa-solid fa-industry"></i> Óleo & Gás</label>
+                    <label class="tabs__btn" for="tab-manuf"><i class="fa-solid fa-gears"></i> Manufatura</label>
+                    <label class="tabs__btn" for="tab-energia"><i class="fa-solid fa-bolt"></i> Energia</label>
+                    <label class="tabs__btn" for="tab-infra"><i class="fa-solid fa-bridge"></i> Infraestrutura</label>
+                    <label class="tabs__btn" for="tab-cities"><i class="fa-solid fa-city"></i> Smart Cities</label>
+                </div>
+
+                <div class="tabs__panels">
+                    <article class="panel panel-offshore">
+                        <div class="panel__media">
+                            <img src="img/industrias/offshore.jpg" alt="Offshore e Naval">
+                        </div>
+                        <div class="panel__copy">
+                            <h3>Offshore & Naval</h3>
+                            <p>Integridade em alto mar com previsões e priorização de intervenções por risco.</p>
+                            <ul class="mini-list">
+                                <li><i class="fa-solid fa-check"></i> Corrosão e fadiga</li>
+                                <li><i class="fa-solid fa-check"></i> Evidências por região</li>
+                                <li><i class="fa-solid fa-check"></i> Plano de ação rastreável</li>
+                            </ul>
+                            <a class="btn btn-primary" href="naval.html">Saiba mais</a>
+                        </div>
+                    </article>
+
+                    <article class="panel panel-oleo">
+                        <div class="panel__media">
+                            <img src="img/industrias/oleo.jpg" alt="Óleo e Gás">
+                        </div>
+                        <div class="panel__copy">
+                            <h3>Óleo & Gás</h3>
+                            <p>Decisões rápidas em ativos críticos, com centralização e governança de dados.</p>
+                            <ul class="mini-list">
+                                <li><i class="fa-solid fa-check"></i> Dados operacionais + inspeção</li>
+                                <li><i class="fa-solid fa-check"></i> Priorização por criticidade</li>
+                                <li><i class="fa-solid fa-check"></i> Auditoria completa</li>
+                            </ul>
+                            <a class="btn btn-primary" href="#contato">Falar com especialista</a>
+                        </div>
+                    </article>
+
+                    <article class="panel panel-manuf">
+                        <div class="panel__media">
+                            <img src="img/industrias/manufatura.jpg" alt="Indústria e Manufatura">
+                        </div>
+                        <div class="panel__copy">
+                            <h3>Indústria & Manufatura</h3>
+                            <p>IoT no chão de fábrica para reduzir paradas e perdas com monitoramento contínuo.</p>
+                            <ul class="mini-list">
+                                <li><i class="fa-solid fa-check"></i> Confiabilidade</li>
+                                <li><i class="fa-solid fa-check"></i> Tendências e alertas</li>
+                                <li><i class="fa-solid fa-check"></i> Padronização</li>
+                            </ul>
+                            <a class="btn btn-primary" href="#contato">Solicitar demo</a>
+                        </div>
+                    </article>
+
+                    <article class="panel panel-energia">
+                        <div class="panel__media">
+                            <img src="img/industrias/energia.jpg" alt="Energia">
+                        </div>
+                        <div class="panel__copy">
+                            <h3>Energia</h3>
+                            <p>Mais previsibilidade na operação e manutenção, com decisões auditáveis.</p>
+                            <ul class="mini-list">
+                                <li><i class="fa-solid fa-check"></i> Disponibilidade</li>
+                                <li><i class="fa-solid fa-check"></i> Priorização por risco</li>
+                                <li><i class="fa-solid fa-check"></i> Evidências centralizadas</li>
+                            </ul>
+                            <a class="btn btn-primary" href="#contato">Falar com especialista</a>
+                        </div>
+                    </article>
+
+                    <article class="panel panel-infra">
+                        <div class="panel__media">
+                            <img src="img/industrias/infraestrutura.jpg" alt="Infraestrutura">
+                        </div>
+                        <div class="panel__copy">
+                            <h3>Infraestrutura</h3>
+                            <p>Monitoramento estrutural contínuo e intervenções mais precisas.</p>
+                            <ul class="mini-list">
+                                <li><i class="fa-solid fa-check"></i> Estruturas e regiões</li>
+                                <li><i class="fa-solid fa-check"></i> Histórico e inspeção</li>
+                                <li><i class="fa-solid fa-check"></i> Plano de manutenção</li>
+                            </ul>
+                            <a class="btn btn-primary" href="#contato">Solicitar demo</a>
+                        </div>
+                    </article>
+
+                    <article class="panel panel-cities">
+                        <div class="panel__media">
+                            <img src="img/industrias/smartCitiesGemini.png" alt="Smart Cities">
+                        </div>
+                        <div class="panel__copy">
+                            <h3>Smart Cities</h3>
+                            <p>Dados integrados para gestão urbana mais eficiente e decisões consistentes.</p>
+                            <ul class="mini-list">
+                                <li><i class="fa-solid fa-check"></i> Centralização de dados</li>
+                                <li><i class="fa-solid fa-check"></i> Visão por regiões</li>
+                                <li><i class="fa-solid fa-check"></i> Governança</li>
+                            </ul>
+                            <a class="btn btn-primary" href="#contato">Falar com especialista</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block section-alt" id="cases">
+        <div class="container-v2">
+            <div class="section-head reveal">
+                <h3>Prova prática</h3>
+                <h2>Mini-cases e resultados</h2>
+                <p>Exemplos do que muda quando a decisão vira um processo.</p>
+            </div>
+
+            <div class="cases">
+                <article class="case reveal">
+                    <div class="case__meta">
+                        <span class="tag">Offshore</span>
+                        <span class="tag tag--muted">Integridade</span>
+                    </div>
+                    <h4>Corrosão por região com priorização</h4>
+                    <p>Centralização de inspeção + histórico → lista clara de intervenção com evidências.</p>
+
+                    <div class="kpis">
+                        <div class="kpi">
+                            <span class="kpi-num">↑</span>
+                            <span class="kpi-label">clareza na prioridade</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-num">✔</span>
+                            <span class="kpi-label">decisão auditável</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="case reveal delay-200">
+                    <div class="case__meta">
+                        <span class="tag">Manufatura</span>
+                        <span class="tag tag--muted">IoT</span>
+                    </div>
+                    <h4>Alerta de tendência antes da parada</h4>
+                    <p>Dados operacionais + contexto do ativo → intervenção antes do impacto no OEE.</p>
+
+                    <div class="kpis">
+                        <div class="kpi">
+                            <span class="kpi-num">↓</span>
+                            <span class="kpi-label">parada não planejada</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-num">↑</span>
+                            <span class="kpi-label">confiabilidade</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="case reveal delay-400">
+                    <div class="case__meta">
+                        <span class="tag">Infra</span>
+                        <span class="tag tag--muted">Governança</span>
+                    </div>
+                    <h4>Documentos e evidências padronizadas</h4>
+                    <p>Menos retrabalho: tudo versionado, rastreável e consistente para auditoria.</p>
+
+                    <div class="kpis">
+                        <div class="kpi">
+                            <span class="kpi-num">↓</span>
+                            <span class="kpi-label">retrabalho</span>
+                        </div>
+                        <div class="kpi">
+                            <span class="kpi-num">✔</span>
+                            <span class="kpi-label">controle de acesso</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block" id="comparacao">
+        <div class="container-v2">
+            <div class="section-head reveal">
+                <h3>Comparação</h3>
+                <h2>Plataforma vs. método tradicional</h2>
+                <p>Uma forma simples de visualizar o que muda no dia a dia.</p>
+            </div>
+
+            <div class="compare reveal delay-200">
+                <div class="compare__head">
+                    <span></span>
+                    <span class="compare__col">PhDsoft</span>
+                    <span class="compare__col muted">Tradicional</span>
+                </div>
+
+                <div class="compare__row">
+                    <span class="compare__label">Decisão rastreável</span>
+                    <span class="ok"><i class="fa-solid fa-check"></i> Sim</span>
+                    <span class="no"><i class="fa-solid fa-minus"></i> Parcial</span>
+                </div>
+
+                <div class="compare__row">
+                    <span class="compare__label">Evidências centralizadas</span>
+                    <span class="ok"><i class="fa-solid fa-check"></i> Sim</span>
+                    <span class="no"><i class="fa-solid fa-minus"></i> Disperso</span>
+                </div>
+
+                <div class="compare__row">
+                    <span class="compare__label">Prioridade por risco</span>
+                    <span class="ok"><i class="fa-solid fa-check"></i> Sim</span>
+                    <span class="no"><i class="fa-solid fa-minus"></i> Manual</span>
+                </div>
+
+                <div class="compare__row">
+                    <span class="compare__label">Padronização para escala</span>
+                    <span class="ok"><i class="fa-solid fa-check"></i> Sim</span>
+                    <span class="no"><i class="fa-solid fa-minus"></i> Difícil</span>
+                </div>
+
+                <div class="compare__row">
+                    <span class="compare__label">Governança e acesso</span>
+                    <span class="ok"><i class="fa-solid fa-check"></i> Forte</span>
+                    <span class="no"><i class="fa-solid fa-minus"></i> Variável</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block section-alt" id="seguranca">
+        <div class="container-v2 security">
+            <div class="security__copy reveal-left">
+                <div class="section-head section-head--left">
+                    <h3>Segurança</h3>
+                    <h2>Governança de dados e controle de acesso</h2>
+                    <p>
+                        Controle por perfis, rastreio de alterações e organização de evidências para auditoria.
+                        Segurança e confiabilidade são parte do produto.
+                    </p>
+                </div>
+
+                <ul class="security__list">
+                    <li><i class="fa-solid fa-user-shield"></i> Acesso por perfil e por ativo</li>
+                    <li><i class="fa-solid fa-file-signature"></i> Trilha de auditoria e versionamento</li>
+                    <li><i class="fa-solid fa-database"></i> Padronização e consistência de dados</li>
+                    <li><i class="fa-solid fa-lock"></i> Fluxo alinhado a compliance e governança</li>
+                </ul>
+
+                <div class="security__actions">
+                    <a class="btn btn-primary" href="#contato">Agendar conversa</a>
+                    <a class="btn btn-ghost-v2" href="#comparacao">Ver comparação</a>
+                </div>
+            </div>
+
+            <div class="security__mock reveal delay-200" aria-label="Mock de painel de auditoria">
+                <div class="mock">
+                    <div class="mock__top">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="mock__title">Audit Trail • Exemplo</span>
+                    </div>
+
+                    <div class="mock__body">
+                        <div class="mock__row">
+                            <span class="badge">ALTERAÇÃO</span>
+                            <span>Região R-12 • espessura atualizada</span>
+                            <span class="muted">por Eng. A • 10:42</span>
+                        </div>
+                        <div class="mock__row">
+                            <span class="badge badge--blue">DECISÃO</span>
+                            <span>Plano: reparo parcial priorizado</span>
+                            <span class="muted">por Gestor • 11:10</span>
+                        </div>
+                        <div class="mock__row">
+                            <span class="badge badge--ok">EVIDÊNCIA</span>
+                            <span>Foto + relatório anexados</span>
+                            <span class="muted">por Inspetor • 11:32</span>
+                        </div>
+
+                        <div class="mock__divider"></div>
+
+                        <div class="mock__kpis">
+                            <div class="mock__kpi">
+                                <span class="muted">Itens rastreados</span>
+                                <strong>100%</strong>
+                            </div>
+                            <div class="mock__kpi">
+                                <span class="muted">Acesso por perfil</span>
+                                <strong>Ativo/Time</strong>
+                            </div>
+                            <div class="mock__kpi">
+                                <span class="muted">Histórico</span>
+                                <strong>Versionado</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block" id="contato">
+        <div class="container-v2 final-cta reveal">
+            <div class="final-cta__copy">
+                <h2>Vamos mapear seu caso em 20 minutos</h2>
+                <p>
+                    Você mostra como seus dados estão hoje. A gente devolve um caminho de implantação:
+                    mapeamento → integração → priorização → decisão auditável.
+                </p>
+            </div>
+            <div class="final-cta__actions">
+                <a class="btn btn-primary" href="mailto:contato@phdsoft.com">Enviar e-mail</a>
+                <a class="btn btn-ghost-v2" href="#topo">Voltar ao topo</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand reveal">
+                    <h3>PhDsoft</h3>
+                    <p>
+                        Engenharia aumentada para monitoramento, previsão e decisão.
+                        Integre IA e IoT e reduza paradas com mais confiabilidade operacional.
+                    </p>
+                    <div class="footer-cta">
+                        <a href="#" class="btn-hero footer-btn">Falar com um especialista</a>
+                    </div>
+                </div>
+
+                <div class="footer-cols reveal delay-200">
+                    <div class="footer-col">
+                        <h4>Produto</h4>
+                        <ul>
+                            <li><a href="#tecnologia">Tecnologia</a></li>
+                            <li><a href="#setores">Indústrias</a></li>
+                            <li><a href="#cases">Cases de Sucesso</a></li>
+                            <li><a href="#seguranca">Segurança</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="#about">Sobre</a></li>
+                            <li><a href="#careers">Carreiras</a></li>
+                            <li><a href="#press">Imprensa</a></li>
+                            <li><a href="#contact">Contato</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contato</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:contato@phdsoft.com">contato@phdsoft.com</a></li>
+                            <li><i class="fas fa-phone"></i> <a href="tel:+5521999999999">+55 (21) 99999-9999</a></li>
+                            <li><i class="fas fa-location-dot"></i> Rio de Janeiro, Brasil</li>
+                        </ul>
+
+                        <div class="footer-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> PhDsoft. Todos os direitos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Política de Privacidade</a>
+                    <span class="dot-sep">•</span>
+                    <a href="#terms">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

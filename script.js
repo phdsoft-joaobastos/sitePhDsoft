@@ -101,3 +101,24 @@ if (header) {
     header.classList.toggle("scrolled", window.scrollY > 120);
   });
 }
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Configuração do Observer
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15 // Ativa quando 15% do elemento estiver visível
+}
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Para de observar após animar (anima só 1 vez)
+        }
+    });
+}, observerOptions)
+// Seleciona todos os elementos com a classe .reveal e .reveal-left
+document.querySelectorAll('.reveal, .reveal-left').forEach((el) => {
+    observer.observe(el);
+});
