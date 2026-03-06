@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologia - PhDsoft</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Ajuste no switcher de idioma para não quebrar o layout */
+        .lang-switch {
+            flex-direction: column !important;
+            top: 50% !important;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        /* --- Estilização do Grid de Destaques Técnicos --- */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-card {
+            background: var(--white, #ffffff);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--stroke);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-card h4 {
+            color: var(--text-dark, #1a202c);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        /* --- Estilização das ABAS (Tabs) --- */
+        .tabs {
+            margin-top: 3rem;
+            width: 100%;
+        }
+
+        .tabs__radio {
+            display: none;
+        }
+
+        .tabs__nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            border-bottom: 2px solid var(--stroke);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tabs__btn {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-gray, #4a5568);
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tabs__btn:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Lógica de seleção das abas via CSS */
+        #tab-inspection:checked ~ .tabs__nav label[for="tab-inspection"],
+        #tab-degradation:checked ~ .tabs__nav label[for="tab-degradation"],
+        #tab-repair:checked ~ .tabs__nav label[for="tab-repair"],
+        #tab-rba:checked ~ .tabs__nav label[for="tab-rba"] {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+
+        .tabs__panels {
+            background: var(--white, #ffffff);
+            border-radius: var(--radius);
+            border: 1px solid var(--stroke);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .panel {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Lógica para mostrar o painel correto */
+        #tab-inspection:checked ~ .tabs__panels .panel-inspection,
+        #tab-degradation:checked ~ .tabs__panels .panel-degradation,
+        #tab-repair:checked ~ .tabs__panels .panel-repair,
+        #tab-rba:checked ~ .tabs__panels .panel-rba {
+            display: block;
+        }
+
+        .panel h3 {
+            color: var(--text-dark, #1a202c);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .mini-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .mini-list li {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-gray, #4a5568);
+        }
+
+        .mini-list li i {
+            color: var(--primary-blue);
+            margin-top: 0.25rem;
+        }
+
+        /* --- Estilização do MOCK de Auditoria --- */
+        .security-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        @media (max-width: 992px) {
+            .security-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .panel {
+                padding: 1.5rem;
+            }
+        }
+
+        .mock-window {
+            flex: 1;
+            width: 100%;
+            background: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #333;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .mock-header {
+            background: #2d2d2d;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .mock-title {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-left: 1rem;
+        }
+
+        .mock-body {
+            padding: 1.5rem;
+            color: #d4d4d4;
+            font-size: 0.9rem;
+        }
+
+        .mock-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid #333;
+            gap: 1rem;
+        }
+
+        .mock-row:last-child { border-bottom: none; }
+
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            min-width: 90px;
+            text-align: center;
+        }
+
+        .badge-update { background: rgba(255, 189, 46, 0.2); color: #ffbd2e; border: 1px solid rgba(255, 189, 46, 0.4); }
+        .badge-decision { background: rgba(0, 123, 255, 0.2); color: #007bff; border: 1px solid rgba(0, 123, 255, 0.4); }
+        .badge-evidence { background: rgba(39, 201, 63, 0.2); color: #27c93f; border: 1px solid rgba(39, 201, 63, 0.4); }
+
+        .mock-time { color: #777; font-size: 0.8rem; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logos/Logo phdsoft.png" alt="PhDsoft">
+            </a>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html#tecnologia">Soluções</a></li>
+                <li><a href="tecnologia.html" style="color: var(--primary-blue); font-weight: 700;">Tecnologia</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="case.html">Cases de Sucesso</a></li>
+            </ul>
+        </nav>
+
+        <div class="contato">
+            <a href="contato.html" class="btn">Entre em Contato</a>
+        </div>
+    </header>
+
+    <div class="lang-switch" aria-label="Language switcher">
+      <a href="index.html" class="lang-btn" aria-label="Português" title="Português">
+        <img src="img/flags/brazil.svg" alt="Português (Brasil)" width="26" height="18">
+      </a>
+      <a href="langs\en\index-en.html" class="lang-btn" aria-label="English" title="English">
+        <img src="img/flags/usa.svg" alt="English" width="26" height="18">
+      </a>
+      <a href="langs\de\index-de.html" class="lang-btn" aria-label="Deutsch" title="Deutsch">
+        <img src="img/flags/germany.svg" alt="Deutsch" width="26" height="18">
+      </a>
+      <a href="langs\fr\index-fr.html" class="lang-btn" aria-label="Français" title="Français">
+        <img src="img/flags/france.svg" alt="Français" width="26" height="18">
+      </a>
+    </div>
+
+    <section class="hero" id="topo" style="padding: 8rem 5% 6rem;">
+        <div class="conteudo">
+            <div class="texto">
+                <h2>Arquitetura do Sistema</h2>
+                <h1 style="font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.1;">C4D Web Digital Twin</h1>
+                <p style="font-size: 1.15rem; max-width: 600px; margin-bottom: 2rem;">
+                    O sistema é baseado em nuvem e não requer instalação. Acessado diretamente pelo navegador, oferece suporte para Windows, macOS, Linux, Android e iOS.
+                </p>
+                <div>
+                    <a href="#modulos" class="btn-hero">Explorar Módulos Técnicos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block" id="navegacao" style="background: var(--bg-light);">
+        <div class="container-v2">
+            <div class="section-head">
+                <h3>Interface e Acesso</h3>
+                <h2>Navegação e Estrutura do Modelo</h2>
+                <p>O ambiente inicial e as ferramentas de visualização do modelo digital.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h4>GeoDashboard</h4>
+                    <p>A tela inicial é uma interface baseada em mapa onde cada ativo é plotado com base em sua localização geográfica (latitude e longitude). Suporta visualizações em modo claro, escuro, satélite e rua.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-wifi"></i></div>
+                    <h4>Modo Offline e Cache</h4>
+                    <p>A plataforma suporta uso offline baixando regiões específicas para o cache do navegador. Os dados inseridos no campo (offline) são sincronizados automaticamente quando o dispositivo se reconecta à internet.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-qrcode"></i></div>
+                    <h4>Asset Explorer & QR Code</h4>
+                    <p>O Asset Explorer organiza o ativo hierarquicamente (regiões, compartimentos e seções). É possível gerar um QR Code para níveis específicos, que abre a respectiva área ao ser escaneado por um celular.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block" id="modulos" style="background: var(--bg-2);">
+        <div class="container-v2">
+            <div class="section-head">
+                <h3>Funcionalidades</h3>
+                <h2>Módulos do Web Digital Twin</h2>
+                <p>Detalhes operacionais sobre inspeção, degradação, reparos e automação.</p>
+            </div>
+
+            <div class="tabs">
+                <input class="tabs__radio" type="radio" name="tech_modules" id="tab-inspection" checked>
+                <input class="tabs__radio" type="radio" name="tech_modules" id="tab-degradation">
+                <input class="tabs__radio" type="radio" name="tech_modules" id="tab-repair">
+                <input class="tabs__radio" type="radio" name="tech_modules" id="tab-rba">
+
+                <div class="tabs__nav" role="tablist">
+                    <label class="tabs__btn" for="tab-inspection"><i class="fa-solid fa-search"></i> Inspeção</label>
+                    <label class="tabs__btn" for="tab-degradation"><i class="fa-solid fa-chart-line"></i> Degradação</label>
+                    <label class="tabs__btn" for="tab-repair"><i class="fa-solid fa-tools"></i> Reparo</label>
+                    <label class="tabs__btn" for="tab-rba"><i class="fa-solid fa-cogs"></i> RBA & Modelos</label>
+                </div>
+
+                <div class="tabs__panels">
+                    <article class="panel panel-inspection">
+                        <h3>Módulo de Inspeção</h3>
+                        <p>As inspeções são integradas ao modelo 3D/4D e podem ser aplicadas de três formas: por área, por ponto ou por elemento estrutural.</p>
+                        <ul class="mini-list">
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Inserção Manual:</strong> O usuário seleciona o método (ponto, área ou elemento) com o modo 3D desativado para plotar a inspeção com precisão na superfície.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Bot Inspection:</strong> Automatiza a distribuição de pontos de inspeção baseada em regras geométricas. Para placas usa área (m²); para reforços usa o comprimento (m).</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Execução por Planilha:</strong> O plano pode ser exportado como desenho 2D (Inspector's View ou Technical Sketch) com tabela editável, preenchido em campo e importado via upload.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Cores de Monitoramento:</strong> Pontos de espessura variam visualmente de branco (não executado), verde (seguro), amarelo (corrosão substancial) a vermelho (corrosão excessiva).</div></li>
+                        </ul>
+                    </article>
+
+                    <article class="panel panel-degradation">
+                        <h3>Módulo de Degradação</h3>
+                        <p>A degradação é modelada como perda de material por corrosão uniforme, calculada ao longo do tempo e vinculada ao banco de dados histórico de inspeção.</p>
+                        <ul class="mini-list">
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Modelagem Matemática:</strong> Pontos com 1 ou 2 medições recebem um modelo linear. Pontos com 3 ou mais medições recebem um modelo de decaimento exponencial.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Padrões de Execução:</strong> Na ausência de inspeção, assume-se uma taxa padrão (ex: 0,1 mm/ano). Em caso de múltiplas medições, o sistema prioriza o menor valor válido.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Métricas de Elemento:</strong> Elementos estruturais herdam e agregam os parâmetros dos seus pontos subjacentes, incluindo Espessura Estimada Média e Vida Útil Restante.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Limites de Regra:</strong> Calcula a Espessura de Corrosão Excessiva (Espessura de Regra menos a Tolerância de Desgaste) como gatilho de falha estrutural.</div></li>
+                        </ul>
+                    </article>
+
+                    <article class="panel panel-repair">
+                        <h3>Módulo de Reparo</h3>
+                        <p>O recurso permite gerenciar a mitigação estrutural diretamente no ambiente 4D, garantindo a documentação da integridade baseada na Data de Referência do ativo.</p>
+                        <ul class="mini-list">
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Corte Não Dividido (Undivided):</strong> Aplica um patch de reparo contínuo sobre a área selecionada, substituindo a estrutura e ignorando costuras de solda antigas.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Corte Dividido (Divided):</strong> Considera as costuras de solda existentes e divide o patch de reparo se ele cruzar as juntas estruturais normativas.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Ação Digital "Execute":</strong> Ao aprovar o reparo, o software realiza um corte no modelo 3D digital, atualizando a geometria estrutural como seria no mundo real.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Impacto na Degradação:</strong> Após executado, a perda de espessura é zerada. O histórico degradado anterior permanece consultável voltando a linha do tempo (Timeline).</div></li>
+                        </ul>
+                    </article>
+
+                    <article class="panel panel-rba">
+                        <h3>Automação Baseada em Risco (RBA)</h3>
+                        <p>O RBA é a camada de inteligência do sistema que automatiza decisões aplicando regras matemáticas aos resultados dos modelos de degradação e análises estruturais.</p>
+                        <ul class="mini-list">
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Finite Element Model (FEM):</strong> Realiza análises de estresse estrutural, fadiga e flambagem, sendo alimentado com as espessuras correntes geradas pela degradação.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Stability Model:</strong> Fornece as condições de carregamento e envelopes operacionais que são integrados aos cálculos contínuos do FEM.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Ações Prescritas:</strong> Baseado nas regras e no cruzamento do FEM com a Inspeção, o sistema gera ordens preditivas de reparo, inspeções aditivas e mitigação de risco.</div></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block" id="visualizacao" style="background: var(--bg-light);">
+        <div class="container-v2">
+            <div class="security-container">
+                <div class="security-copy" style="flex: 1;">
+                    <div class="section-head section-head--left">
+                        <h3>Visualização e Auditoria</h3>
+                        <h2>Trilha de Rastreabilidade e View Modes</h2>
+                        <p style="margin-top: 1rem;">
+                            A renderização 3D/4D oferece diferentes camadas visuais dependendo da profundidade do modelo (Multi-Region ou Single Compartment), integradas com governança rigorosa de dados.
+                        </p>
+                    </div>
+
+                    <ul class="mini-list" style="grid-template-columns: 1fr; margin-top: 2rem; gap: 1.2rem;">
+                        <li><i class="fa-solid fa-layer-group"></i> <div><strong>Multi-Region View:</strong> Visualização global do ativo suportando Default View, Risk View e Sensor View.</div></li>
+                        <li><i class="fa-solid fa-cube"></i> <div><strong>Single Region View:</strong> Entrando no compartimento, libera-se a Degradation View, Inspection View e Remaining Life.</div></li>
+                        <li><i class="fa-solid fa-file-signature"></i> <div><strong>Logs de Execução:</strong> Registro imutável de todas as inspeções salvas (online ou upload via planilha), versionamento de modelos e controle de acesso por perfil.</div></li>
+                    </ul>
+                </div>
+
+                <div class="mock-window">
+                    <div class="mock-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="mock-title">Log de Eventos do Action Center</span>
+                    </div>
+
+                    <div class="mock-body">
+                        <div class="mock-row">
+                            <span class="status-badge badge-update">Automação</span>
+                            <span>Bot Insertion: +145 pontos criados</span>
+                            <span class="mock-time">09:15:22</span>
+                        </div>
+                        <div class="mock-row">
+                            <span class="status-badge badge-evidence">Evidência</span>
+                            <span>Sync: Medição UTM Offline inserida</span>
+                            <span class="mock-time">11:12:40</span>
+                        </div>
+                        <div class="mock-row">
+                            <span class="status-badge badge-update">Atualização</span>
+                            <span>Curva Exponencial recalibrada</span>
+                            <span class="mock-time">11:13:05</span>
+                        </div>
+                        <div class="mock-row">
+                            <span class="status-badge badge-decision">Decisão</span>
+                            <span>Plano de Reparo: Divided Cut aprovado</span>
+                            <span class="mock-time">14:02:11</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>PhDsoft</h3>
+                    <p>Engenharia aumentada para monitoramento, previsão e decisão. Integre IA e IoT e reduza paradas com mais confiabilidade operacional.</p>
+                    <div class="footer-cta">
+                        <a href="contato.html" class="btn-hero footer-btn">Falar com um especialista</a>
+                    </div>
+                </div>
+
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Produto</h4>
+                        <ul>
+                            <li><a href="tecnologia.html">Tecnologia</a></li>
+                            <li><a href="index.html#setores">Indústrias</a></li>
+                            <li><a href="case.html">Cases de Sucesso</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre Nós</a></li>
+                            <li><a href="#">Carreiras</a></li>
+                            <li><a href="#">Imprensa</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contato</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:contato@phdsoft.com">contato@phdsoft.com</a></li>
+                            <li><i class="fas fa-phone"></i> <a href="tel:+5521999999999">+55 (21) 99999-9999</a></li>
+                            <li><i class="fas fa-location-dot"></i> Rio de Janeiro, Brasil</li>
+                        </ul>
+
+                        <div class="footer-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> PhDsoft. Todos os direitos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Política de Privacidade</a>
+                    <span class="dot-sep">•</span>
+                    <a href="#terms">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
